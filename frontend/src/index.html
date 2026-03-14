@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bloom - To-Do List</title>
+  <style>
+    body { font-family: sans-serif; background: #fdf8f2; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+    .card { background: #fff; border-radius: 20px; padding: 2rem 2.5rem; text-align: center; box-shadow: 0 8px 40px rgba(0,0,0,0.1); }
+    .status { padding: .4rem 1rem; border-radius: 20px; font-size: .85rem; font-weight: 600; display: inline-block; margin-top: 1rem; }
+    .ok  { background: #e4f4e4; color: #407040; }
+    .err { background: #fde4e4; color: #c04040; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Bloom - To-Do List</h1>
+    <p>Frontend operationnel</p>
+    <div id="s" class="status">Connexion backend...</div>
+  </div>
+  <script>
+    fetch('/api/health')
+      .then(r => r.json())
+      .then(d => {
+        document.getElementById('s').className = 'status ok';
+        document.getElementById('s').textContent = 'Backend OK - DB: ' + (d.db ? 'connectee' : 'deconnectee');
+      })
+      .catch(() => {
+        document.getElementById('s').className = 'status err';
+        document.getElementById('s').textContent = 'Backend inaccessible';
+      });
+  </script>
+</body>
+</html>
