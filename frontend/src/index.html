@@ -1,33 +1,95 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>Bloom - To-Do List</title>
-  <style>
-    body { font-family: sans-serif; background: #fdf8f2; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
-    .card { background: #fff; border-radius: 20px; padding: 2rem 2.5rem; text-align: center; box-shadow: 0 8px 40px rgba(0,0,0,0.1); }
-    .status { padding: .4rem 1rem; border-radius: 20px; font-size: .85rem; font-weight: 600; display: inline-block; margin-top: 1rem; }
-    .ok  { background: #e4f4e4; color: #407040; }
-    .err { background: #fde4e4; color: #c04040; }
-  </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Bloom - To-Do List</h1>
-    <p>Frontend operationnel</p>
-    <div id="s" class="status">Connexion backend...</div>
-  </div>
-  <script>
-    fetch('/api/health')
-      .then(r => r.json())
-      .then(d => {
-        document.getElementById('s').className = 'status ok';
-        document.getElementById('s').textContent = 'Backend OK - DB: ' + (d.db ? 'connectee' : 'deconnectee');
-      })
-      .catch(() => {
-        document.getElementById('s').className = 'status err';
-        document.getElementById('s').textContent = 'Backend inaccessible';
-      });
-  </script>
+
+<!--
+  ══════════════════════════════════════════
+   TRAVAIL : DEV FRONTEND
+  ══════════════════════════════════════════
+
+  OBJECTIF : Créer l interface complète de
+  la To-Do List en HTML + CSS + JavaScript
+
+  ── PAGES A CRÉER ──────────────────────
+
+  1. PAGE LOGIN
+     - Un champ "username"
+     - Un champ "password"
+     - Un bouton "Connexion"
+     - Afficher un message si erreur
+
+  2. PAGE PRINCIPALE (après connexion)
+     - Afficher le nom de l utilisateur connecté
+     - Bouton déconnexion
+     - Statistiques (total / faites / en attente)
+     - Formulaire ajouter une tâche
+     - Liste de toutes les tâches
+
+  3. CHAQUE TÂCHE doit afficher :
+     - Le texte de la tâche
+     - La catégorie (travail/perso/etude/urgent)
+     - La date de création
+     - Bouton pour cocher/décocher
+     - Bouton pour supprimer
+
+  4. VUE ADMIN (si role === admin)
+     - Voir les tâches de TOUS les utilisateurs
+     - Afficher le nom du propriétaire de chaque tâche
+
+  ── APPELS API A UTILISER ──────────────
+
+  // 1. SE CONNECTER
+  fetch('/api/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username, password })
+  })
+  // Réponse : { success: true, data: { id, username, role } }
+
+  // 2. RÉCUPÉRER SES TÂCHES
+  fetch('/api/tasks?owner=USERNAME&role=user')
+  // Réponse : { success: true, data: [ liste des taches ] }
+
+  // 3. RÉCUPÉRER TOUTES LES TÂCHES (admin)
+  fetch('/api/tasks?role=admin')
+
+  // 4. AJOUTER UNE TÂCHE
+  fetch('/api/tasks', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      text: 'Ma tache',
+      owner: 'aya',
+      tag: 'travail',
+      priority: 'haute'
+    })
+  })
+  // Réponse : { success: true, data: { la tache créée } }
+
+  // 5. COCHER / DÉCOCHER UNE TÂCHE
+  fetch('/api/tasks/ID/toggle', { method: 'PATCH' })
+
+  // 6. SUPPRIMER UNE TÂCHE
+  fetch('/api/tasks/ID', { method: 'DELETE' })
+
+  ── COMPTES DE TEST ────────────────────
+  aya / aya123
+  omar / omar123
+  fatima / fatima123
+  admin / admin123 (voit tout)
+
+  ── LANCER LE PROJET ───────────────────
+  docker-compose up --no-build
+  Ouvrir : http://localhost:3000
+
+  ══════════════════════════════════════════
+-->
+
+  <!-- Ecris ton code HTML/CSS/JS ici -->
+
 </body>
 </html>
