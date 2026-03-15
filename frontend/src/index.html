@@ -256,11 +256,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text1)
   </div>
 </div>
 <div class="tbox" id="tbox"></div><div id="mc"></div>
-<script>localStorage.clear();
+<script>
 const EMOJIS=[128204,127919,128161,128293,11088,128218,128187,127947,127822,127912,9992,127925,128722,129529,128188,128222,129688,127807,127968,9889].map(c=>String.fromCodePoint(c));
 const MF=['Janvier','Fevrier','Mars','Avril','Mai','Juin','Juillet','Aout','Septembre','Octobre','Novembre','Decembre'];
 const DF=['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
-localStorage.removeItem('bv5');let cu=null,st={filt:'all',ufilt:'all',emoji:'📌',selDate:null},calDate=new Date(),calTempSel=null;
+let cu=null,st={filt:'all',ufilt:'all',emoji:'📌',selDate:null},calDate=new Date(),calTempSel=null;
 const DU=[
   {id:1,username:'aya',password:'aya123',role:'user'},
   {id:2,username:'omar',password:'omar123',role:'user'},
@@ -430,6 +430,7 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 </script>
 </body>
 </html>
+
 
 
 
