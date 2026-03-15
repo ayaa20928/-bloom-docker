@@ -422,7 +422,7 @@ function renderT(tasks){
     const cd=adm||t.owner===cu.username;
     const pl=t.priority==='haute'?'🔴 Haute':t.priority==='basse'?'🟢 Basse':'🟣 Normale';
     const tl=t.tag==='travail'?'💼 Travail':t.tag==='personnel'?'🏠 Personnel':t.tag==='etude'?'📚 Etude':'🚨 Urgent';
-    return '<div class="ti '+pc+(t.done?' done':'')+'"><div class="emoji-badge">'+(t.emoji||'📌')+'</div><div class="'+chk+'" onclick="toggleTask('+t.id+')">'+(t.done?'✓':'')+'</div><div class="tb_"><div class="tt">'+esc(t.text)+'</div><div class="tm"><span class="td">'+dt+'</span>'+(dp?'<span class="date-pill">📅 '+dp+'</span>':'')+'<span class="ttag tag-'+t.tag+'">'+tl+'</span><span class="pch '+pc+'">'+pl+'</span>'+(adm?'<span class="own-pill">@'+esc(t.owner)+'</span>':'')+'</div></div>'+(cd?'<button class="btn-del" onclick="askDel('+t.id+',\''+esc(t.text)+'\')">✕</button>':'')+'</div>';
+    return '<div class="ti '+pc+(t.done?' done':'')+'"><div class="emoji-badge">'+((!t.emoji||t.emoji.length>5||t.emoji==="task")?String.fromCodePoint(128204):t.emoji)+'</div><div class="'+chk+'" onclick="toggleTask('+t.id+')">'+(t.done?'✓':'')+'</div><div class="tb_"><div class="tt">'+esc(t.text)+'</div><div class="tm"><span class="td">'+dt+'</span>'+(dp?'<span class="date-pill">📅 '+dp+'</span>':'')+'<span class="ttag tag-'+t.tag+'">'+tl+'</span><span class="pch '+pc+'">'+pl+'</span>'+(adm?'<span class="own-pill">@'+esc(t.owner)+'</span>':'')+'</div></div>'+(cd?'<button class="btn-del" onclick="askDel('+t.id+',\''+esc(t.text)+'\')">✕</button>':'')+'</div>';
   }).join('');
 }
 function toast(msg,cls){const b=document.getElementById('tbox');const d=document.createElement('div');d.className='tos '+(cls||'tinf');d.textContent=msg;b.appendChild(d);setTimeout(()=>d.remove(),2700);}
@@ -430,5 +430,6 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 </script>
 </body>
 </html>
+
 
 
