@@ -280,11 +280,11 @@ function sl(t){localStorage.setItem('bv5',JSON.stringify(t))}
 function id(){
   const t=tds(new Date()),h=tds(new Date(Date.now()-86400000)),dm=tds(new Date(Date.now()+86400000));
   const dt=[
-    {id:1001,text:'Finir le rapport de stage',emoji:'📚',owner:'aya',tag:'etude',priority:'haute',done:0,date:t,created_at:new Date().toISOString()},
-    {id:1002,text:'Reviser le cours C++',emoji:'💻',owner:'aya',tag:'etude',priority:'normale',done:1,date:h,created_at:new Date(Date.now()-86400000).toISOString()},
-    {id:1003,text:'Preparer la presentation DevOps',emoji:'🎯',owner:'omar',tag:'travail',priority:'haute',done:0,date:t,created_at:new Date().toISOString()},
-    {id:1004,text:'Faire les courses',emoji:'🛒',owner:'fatima',tag:'personnel',priority:'basse',done:0,date:dm,created_at:new Date().toISOString()},
-    {id:1005,text:'Sport 30 minutes',emoji:'🏋️',owner:'aya',tag:'personnel',priority:'normale',done:0,date:t,created_at:new Date().toISOString()}
+    {id:1001,text:'Finir le rapport de stage',emoji:'task',owner:'aya',tag:'etude',priority:'haute',done:0,date:t,created_at:new Date().toISOString()},
+    {id:1002,text:'Reviser le cours C++',emoji:'task',owner:'aya',tag:'etude',priority:'normale',done:1,date:h,created_at:new Date(Date.now()-86400000).toISOString()},
+    {id:1003,text:'Preparer la presentation DevOps',emoji:'task',owner:'omar',tag:'travail',priority:'haute',done:0,date:t,created_at:new Date().toISOString()},
+    {id:1004,text:'Faire les courses',emoji:'task',owner:'fatima',tag:'personnel',priority:'basse',done:0,date:dm,created_at:new Date().toISOString()},
+    {id:1005,text:'Sport 30 minutes',emoji:'task',owner:'aya',tag:'personnel',priority:'normale',done:0,date:t,created_at:new Date().toISOString()}
   ];sl(dt);return dt;
 }
 async function apiLogin(u,p){
@@ -430,4 +430,5 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 </script>
 </body>
 </html>
+
 
