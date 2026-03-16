@@ -334,7 +334,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
             :key="task.id"
             :class="[priorityClass(task.priority), task.done ? 'done-task' : '']"
           >
-            <!-- BADGE --><div class="ebadge">&#128204;</div><!-- CHECKBOX -->
+            <!-- BADGE --><div class="ebadge">&#128204;</div><div class="ebadge">&#128204;</div>
             <div
               class="chk"
               :class="task.done ? 'ck-u' : ''"
@@ -631,5 +631,6 @@ createApp({
 </script>
 </body>
 </html>
+
 
 
