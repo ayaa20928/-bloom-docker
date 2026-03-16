@@ -1,5 +1,6 @@
 ﻿version: '3.9'
 services:
+
   frontend:
     build:
       context: ./frontend
@@ -28,14 +29,12 @@ services:
       - NODE_ENV=development
       - PORT=5000
       - DB_HOST=database
-      - DB_PORT=3306
+      - DB_PORT=5432
       - DB_NAME=bloom_db
       - DB_USER=bloom_user
       - DB_PASSWORD=bloom_pass_2024
-      - JWT_SECRET=bloom_secret_key
     depends_on:
-      database:
-        condition: service_healthy
+      - database
     networks:
       - bloom_net
     restart: unless-stopped
@@ -46,20 +45,13 @@ services:
       dockerfile: Dockerfile
     container_name: bloom_database
     ports:
-      - '3306:3306'
+      - '5432:5432'
     environment:
-      - MYSQL_ROOT_PASSWORD=root_bloom_2024
-      - MYSQL_DATABASE=bloom_db
-      - MYSQL_USER=bloom_user
-      - MYSQL_PASSWORD=bloom_pass_2024
+      - POSTGRES_DB=bloom_db
+      - POSTGRES_USER=bloom_user
+      - POSTGRES_PASSWORD=bloom_pass_2024
     volumes:
-      - bloom_db_data:/var/lib/mysql
-    healthcheck:
-      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 30s
+      - bloom_db_data:/var/lib/postgresql/data
     networks:
       - bloom_net
     restart: unless-stopped

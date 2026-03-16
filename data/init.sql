@@ -1,25 +1,22 @@
-CREATE DATABASE IF NOT EXISTS bloom_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE bloom_db;
-
-CREATE TABLE IF NOT EXISTS users (
-  id         INT AUTO_INCREMENT PRIMARY KEY,
+﻿CREATE TABLE IF NOT EXISTS users (
+  id         SERIAL PRIMARY KEY,
   username   VARCHAR(60) NOT NULL UNIQUE,
   password   VARCHAR(255) NOT NULL,
-  role       ENUM('user','admin') DEFAULT 'user',
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  role       VARCHAR(10) DEFAULT 'user',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS tasks (
-  id         INT AUTO_INCREMENT PRIMARY KEY,
+  id         SERIAL PRIMARY KEY,
   text       VARCHAR(255) NOT NULL,
   emoji      VARCHAR(20) DEFAULT 'pin',
   owner      VARCHAR(60) NOT NULL,
-  tag        ENUM('travail','personnel','etude','urgent') DEFAULT 'personnel',
-  priority   ENUM('haute','normale','basse') DEFAULT 'normale',
-  done       TINYINT(1) DEFAULT 0,
+  tag        VARCHAR(20) DEFAULT 'personnel',
+  priority   VARCHAR(10) DEFAULT 'normale',
+  done       BOOLEAN DEFAULT FALSE,
   date       DATE,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 INSERT INTO users (username, password, role) VALUES
@@ -33,11 +30,12 @@ INSERT INTO users (username, password, role) VALUES
   ('hamza',   'hamza123',   'user'),
   ('leila',   'leila123',   'user'),
   ('mehdi',   'mehdi123',   'user'),
-  ('admin',   'admin123',   'admin');
+  ('admin',   'admin123',   'admin')
+ON CONFLICT (username) DO NOTHING;
 
 INSERT INTO tasks (text, emoji, owner, tag, priority, done, date) VALUES
-  ('Finir le rapport de stage',       'pin', 'aya',    'etude',    'haute',   0, CURDATE()),
-  ('Reviser le cours C++',            'pin', 'aya',    'etude',    'normale', 1, DATE_SUB(CURDATE(),INTERVAL 1 DAY)),
-  ('Preparer la presentation DevOps', 'pin', 'omar',   'travail',  'haute',   0, CURDATE()),
-  ('Faire les courses',               'pin', 'fatima', 'personnel','basse',   0, DATE_ADD(CURDATE(),INTERVAL 1 DAY)),
-  ('Sport 30 minutes',                'pin', 'aya',    'personnel','normale', 0, CURDATE());
+  ('Finir le rapport de stage',       'pin', 'aya',    'etude',     'haute',   false, CURRENT_DATE),
+  ('Reviser le cours C++',            'pin', 'aya',    'etude',     'normale', true,  CURRENT_DATE - 1),
+  ('Preparer la presentation DevOps', 'pin', 'omar',   'travail',   'haute',   false, CURRENT_DATE),
+  ('Faire les courses',               'pin', 'fatima', 'personnel', 'basse',   false, CURRENT_DATE + 1),
+  ('Sport 30 minutes',                'pin', 'aya',    'personnel', 'normale', false, CURRENT_DATE);
