@@ -117,7 +117,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
 .pch.pn{background:#ede4f8;color:#7040a0}
 .pch.pb{background:#e4f4e4;color:#407040}
 .own-pill{font-size:.67rem;padding:.13rem .5rem;border-radius:20px;background:var(--peach);color:#906040;font-weight:500}
-.btn-del{background:none;border:none;cursor:pointer;padding:.42rem;border-radius:10px;font-size:.95rem;color:var(--t3);transition:all .18s;flex-shrink:0}
+.ebadge{width:50px;height:50px;border-radius:14px;background:var(--cream2);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;transition:transform .2s}.ti:hover .ebadge{transform:scale(1.1) rotate(-4deg)}.btn-del{background:none;border:none;cursor:pointer;padding:.42rem;border-radius:10px;font-size:.95rem;color:var(--t3);transition:all .18s;flex-shrink:0}
 .btn-del:hover{background:#fde4e4;color:#c04040}
 .empty{text-align:center;padding:3.5rem 2rem;background:var(--white);border:1.5px dashed var(--border);border-radius:var(--rxl)}
 .empty .eico{font-size:3.5rem;display:block;margin-bottom:.9rem}
@@ -334,7 +334,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
             :key="task.id"
             :class="[priorityClass(task.priority), task.done ? 'done-task' : '']"
           >
-            <!-- CHECKBOX -->
+            <!-- BADGE --><div class="ebadge">&#128204;</div><!-- CHECKBOX -->
             <div
               class="chk"
               :class="task.done ? 'ck-u' : ''"
@@ -631,3 +631,5 @@ createApp({
 </script>
 </body>
 </html>
+
+
