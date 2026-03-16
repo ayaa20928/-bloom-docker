@@ -9,17 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --cream:#fdf8f2;--cream2:#f5efe4;--white:#fff;
-  --border:#e8ddd2;--border2:#d4c8ba;
-  --t1:#2d2824;--t2:#6b6058;--t3:#aaa098;
-  --blush:#f7d6cc;--blush2:#eeb8a8;--peach:#fde8d0;
-  --gold2:#c8a840;
-  --s1:0 2px 16px rgba(100,70,40,.07);
-  --s2:0 8px 40px rgba(100,70,40,.12);
-  --s3:0 20px 60px rgba(100,70,40,.18);
-  --r:16px;--rl:24px;--rxl:32px
-}
+:root{--cream:#fdf8f2;--cream2:#f5efe4;--white:#fff;--border:#e8ddd2;--border2:#d4c8ba;--t1:#2d2824;--t2:#6b6058;--t3:#aaa098;--blush:#f7d6cc;--blush2:#eeb8a8;--peach:#fde8d0;--gold2:#c8a840;--s1:0 2px 16px rgba(100,70,40,.07);--s2:0 8px 40px rgba(100,70,40,.12);--s3:0 20px 60px rgba(100,70,40,.18);--r:16px;--rl:24px;--rxl:32px}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);min-height:100vh;overflow-x:hidden}
 .blob{position:fixed;border-radius:50%;pointer-events:none;z-index:0;animation:bf 14s ease-in-out infinite alternate}
 .b1{width:650px;height:650px;background:radial-gradient(circle,rgba(247,214,204,.5) 0%,transparent 70%);top:-200px;left:-200px}
@@ -27,7 +17,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
 .b3{width:380px;height:380px;background:radial-gradient(circle,rgba(217,208,240,.4) 0%,transparent 70%);top:35%;left:55%;animation-delay:-3.5s}
 @keyframes bf{from{transform:translate(0,0) scale(1)}to{transform:translate(28px,18px) scale(1.05)}}
 #app{position:relative;z-index:1;min-height:100vh}
-/* LOGIN */
 .login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:1.5rem}
 .login-shell{display:grid;grid-template-columns:1.1fr 1fr;max-width:880px;width:100%;background:var(--white);border:1px solid var(--border);border-radius:var(--rxl);box-shadow:var(--s2);overflow:hidden}
 .ll{background:linear-gradient(150deg,#fce8e0 0%,#ede4f8 45%,#d8ecd8 100%);padding:3.5rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;min-height:500px}
@@ -53,7 +42,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
 .blu{background:linear-gradient(135deg,#c4a0d0,#9060b8);color:#fff}.blu:hover{transform:translateY(-2px)}
 .bla{background:linear-gradient(135deg,#e8c97a,#c8a840);color:#4a2e00}.bla:hover{transform:translateY(-2px)}
 .lerr{font-size:.78rem;color:#d04040;text-align:center;margin-top:.6rem;min-height:1rem}
-/* APP */
 .topbar{background:rgba(253,248,242,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
 .tb-logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700}
 .tb-r{display:flex;align-items:center;gap:.75rem}
@@ -75,25 +63,36 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
 .sc-ico{font-size:2.2rem;flex-shrink:0}
 .sc-num{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;line-height:1}
 .sc-lbl{font-size:.72rem;color:var(--t3);text-transform:uppercase;letter-spacing:.06em;margin-top:.2rem}
+.admin-banner{background:linear-gradient(135deg,#fdf6e0,#fff8e8);border:1.5px solid rgba(200,168,64,.3);border-radius:var(--rl);padding:1.2rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.ab-chips{display:flex;gap:.4rem;flex-wrap:wrap}
+.ab-chip{padding:.3rem .8rem;border-radius:20px;border:1.5px solid var(--border);background:var(--white);font-size:.75rem;color:var(--t2);cursor:pointer;transition:all .15s}
+.ab-chip.act{background:#fdf0d0;border-color:var(--gold2);color:#a07010;font-weight:600}
 .add-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rxl);padding:1.8rem 2rem;box-shadow:var(--s1);margin-bottom:2rem}
-.ac-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;margin-bottom:1.2rem;display:block}
+.ac-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
+.ac-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600}
+.cal-btn{display:flex;align-items:center;gap:.5rem;background:var(--cream2);border:1.5px solid var(--border);border-radius:12px;padding:.45rem 1rem;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--t2);cursor:pointer;transition:all .2s;white-space:nowrap}
+.cal-btn:hover{background:#ede4f8;border-color:#c4a0d0;color:#7040a0}
+.cal-btn.has-date{background:#f0e8f8;border-color:#c4a0d0;color:#7040a0;font-weight:500}
+.erow{display:flex;gap:.4rem;margin-bottom:1.1rem;flex-wrap:wrap}
+.ep{width:40px;height:40px;border-radius:12px;border:1.5px solid var(--border);background:var(--cream);font-size:1.3rem;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.ep:hover{background:var(--peach);border-color:var(--blush2);transform:scale(1.1)}
+.ep.on{background:var(--blush);border-color:var(--blush2);box-shadow:0 4px 12px rgba(238,184,168,.4)}
 .add-row{display:grid;grid-template-columns:1fr auto auto auto;gap:.75rem;align-items:center}
 .ai{padding:.85rem 1.1rem;border:1.5px solid var(--border);border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:.93rem;color:var(--t1);background:var(--cream);outline:none;transition:border-color .2s}
 .ai:focus{border-color:#c4a0d0;box-shadow:0 0 0 3px rgba(196,160,208,.14);background:var(--white)}
 .as_{padding:.85rem 1rem;border:1.5px solid var(--border);border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:.83rem;color:var(--t2);background:var(--cream);outline:none;cursor:pointer;appearance:none;min-width:108px}
 .btn-add{padding:.85rem 1.4rem;border:none;border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;background:linear-gradient(135deg,#c4a0d0,#9060b8);color:#fff}
 .btn-add:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(144,96,184,.38)}
-.btn-add-a{background:linear-gradient(135deg,#e8c97a,#c8a840);color:#4a2e00}
+.btn-add-a{background:linear-gradient(135deg,#e8c97a,#c8a840) !important;color:#4a2e00 !important}
 .tasks-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:.75rem}
 .th-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600}
 .fg{display:flex;gap:.38rem}
 .fb{padding:.33rem .85rem;border-radius:20px;border:1.5px solid var(--border);background:none;font-family:'DM Sans',sans-serif;font-size:.76rem;color:var(--t2);cursor:pointer;transition:all .15s}
 .fb:hover{background:var(--cream2)}
-.fb.active{background:#f2eaf8;border-color:#c4a0d0;color:#7040a0}
-.fb.active-a{background:#fdf0d0;border-color:var(--gold2);color:#a07010}
+.fb.fa-u{background:#f2eaf8;border-color:#c4a0d0;color:#7040a0}
+.fb.fa-a{background:#fdf0d0;border-color:var(--gold2);color:#a07010}
 .tl{display:flex;flex-direction:column;gap:.6rem}
-.ti{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:1rem 1.25rem;display:flex;align-items:center;gap:.95rem;box-shadow:var(--s1);transition:all .22s;position:relative;overflow:hidden;animation:fadeIn .3s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.ti{background:var(--white);border:1.5px solid var(--border);border-radius:var(--rl);padding:1rem 1.25rem;display:flex;align-items:center;gap:.95rem;box-shadow:var(--s1);transition:all .22s;position:relative;overflow:hidden}
 .ti::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--rl) var(--rl) 0 0}
 .ti.ph::before{background:linear-gradient(90deg,#f0b8a8,#e07060)}
 .ti.pn::before{background:linear-gradient(90deg,#c4a0d0,#9060b8)}
@@ -101,8 +100,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
 .ti:hover{transform:translateY(-2px);box-shadow:var(--s2);border-color:var(--border2)}
 .ti.done-task{opacity:.45}
 .ti.done-task .tt{text-decoration:line-through;color:var(--t3)}
+.ebadge{width:50px;height:50px;border-radius:14px;background:var(--cream2);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;transition:transform .2s}
+.ti:hover .ebadge{transform:scale(1.1) rotate(-4deg)}
 .chk{width:22px;height:22px;border-radius:7px;border:2px solid var(--border2);background:transparent;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .18s;font-size:11px;color:transparent}
 .chk.ck-u{background:linear-gradient(135deg,#c4a0d0,#9060b8);border-color:#9060b8;color:#fff}
+.chk.ck-a{background:linear-gradient(135deg,#e8c97a,#c8a840);border-color:#c8a840;color:#4a2e00}
 .tb_{flex:1;min-width:0}
 .tt{font-size:.93rem;color:var(--t1);font-weight:500;margin-bottom:.3rem}
 .tm{display:flex;align-items:center;gap:.45rem;flex-wrap:wrap}
@@ -117,7 +119,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
 .pch.pn{background:#ede4f8;color:#7040a0}
 .pch.pb{background:#e4f4e4;color:#407040}
 .own-pill{font-size:.67rem;padding:.13rem .5rem;border-radius:20px;background:var(--peach);color:#906040;font-weight:500}
-.ebadge{width:50px;height:50px;border-radius:14px;background:var(--cream2);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;transition:transform .2s}.ti:hover .ebadge{transform:scale(1.1) rotate(-4deg)}.btn-del{background:none;border:none;cursor:pointer;padding:.42rem;border-radius:10px;font-size:.95rem;color:var(--t3);transition:all .18s;flex-shrink:0}
+.date-pill{font-size:.64rem;padding:.13rem .5rem;border-radius:20px;background:#f0e8f8;color:#7040a0}
+.btn-del{background:none;border:none;cursor:pointer;padding:.42rem;border-radius:10px;font-size:.95rem;color:var(--t3);transition:all .18s;flex-shrink:0}
 .btn-del:hover{background:#fde4e4;color:#c04040}
 .empty{text-align:center;padding:3.5rem 2rem;background:var(--white);border:1.5px dashed var(--border);border-radius:var(--rxl)}
 .empty .eico{font-size:3.5rem;display:block;margin-bottom:.9rem}
@@ -125,21 +128,36 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
 .empty .esub{font-size:.82rem;color:var(--t3);margin-top:.35rem}
 .msg-ok{background:#e4f4e4;color:#407040;border:1px solid #9ec49a;border-radius:10px;padding:.5rem 1rem;font-size:.82rem;text-align:center;margin-bottom:1rem}
 .msg-err{background:#fde4e4;color:#c04040;border:1px solid #f0b8a8;border-radius:10px;padding:.5rem 1rem;font-size:.82rem;text-align:center;margin-bottom:1rem}
-.admin-banner{background:linear-gradient(135deg,#fdf6e0,#fff8e8);border:1.5px solid rgba(200,168,64,.3);border-radius:var(--rl);padding:1.2rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.ab-chips{display:flex;gap:.4rem;flex-wrap:wrap}
-.ab-chip{padding:.3rem .8rem;border-radius:20px;border:1.5px solid var(--border);background:var(--white);font-size:.75rem;color:var(--t2);cursor:pointer;transition:all .15s}
-.ab-chip.act{background:#fdf0d0;border-color:var(--gold2);color:#a07010;font-weight:600}
+.cal-overlay{position:fixed;inset:0;background:rgba(45,40,36,.4);backdrop-filter:blur(6px);z-index:600;display:flex;align-items:center;justify-content:center}
+.cal-popup{background:var(--white);border:1px solid var(--border);border-radius:var(--rxl);padding:2rem;width:100%;max-width:380px;box-shadow:var(--s3)}
+.cal-pop-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.cal-pop-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700}
+.cal-pop-close{background:none;border:1px solid var(--border);border-radius:8px;padding:.3rem .6rem;cursor:pointer;font-size:.9rem;color:var(--t2)}
+.cal-nav-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
+.cal-month-lbl{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600}
+.cal-nav-grp{display:flex;gap:.4rem}
+.cnb{width:32px;height:32px;border-radius:10px;border:1.5px solid var(--border);background:var(--cream);color:var(--t2);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+.cnb:hover{background:var(--blush)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.3rem}
+.cal-dname{text-align:center;font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--t3);padding:.4rem 0;font-weight:600}
+.cal-d{aspect-ratio:1;border-radius:10px;border:1.5px solid transparent;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.82rem;color:var(--t1);transition:all .15s;position:relative;font-family:'DM Sans',sans-serif}
+.cal-d:hover:not(.empty-d){background:var(--cream2);border-color:var(--border)}
+.cal-d.today{border-color:#f0b8a8;color:#c04030;font-weight:700;background:#fde8e4}
+.cal-d.sel{background:linear-gradient(135deg,#c4a0d0,#9060b8);border-color:#9060b8;color:#fff;font-weight:700}
+.cal-d.has-t::after{content:'';width:5px;height:5px;border-radius:50%;background:#9ec49a;position:absolute;bottom:4px}
+.cal-d.empty-d{cursor:default;opacity:0;pointer-events:none}
+.cal-pop-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid var(--border);gap:.75rem}
+.cal-sel-txt{font-size:.82rem;color:var(--t2);flex:1}
+.btn-cal-clear{background:none;border:1.5px solid var(--border);border-radius:10px;padding:.45rem .9rem;font-family:'DM Sans',sans-serif;font-size:.78rem;color:var(--t2);cursor:pointer}
+.btn-cal-ok{background:linear-gradient(135deg,#c4a0d0,#9060b8);border:none;border-radius:10px;padding:.45rem 1.2rem;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;color:#fff;cursor:pointer}
 @media(max-width:680px){.login-shell{grid-template-columns:1fr}.ll{display:none}.add-row{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.topbar{padding:.9rem 1rem}.ct{padding:1.5rem 1rem}.hero-t{font-size:2rem}}
 </style>
 </head>
 <body>
-<div class="blob b1"></div>
-<div class="blob b2"></div>
-<div class="blob b3"></div>
-
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
 <div id="app">
 
-  <!-- ══════ LOGIN ══════ -->
+  <!-- LOGIN -->
   <div class="login-screen" v-if="!currentUser">
     <div class="login-shell">
       <div class="ll">
@@ -159,11 +177,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
         <h2 class="lr-title">Bienvenue &#128075;</h2>
         <p class="lr-desc">Choisissez votre role et connectez-vous.</p>
         <div class="role-grid">
-          <div class="rc" :class="selectedRole==='user' ? 'sel-u' : ''" @click="selectedRole='user'">
+          <div class="rc" :class="selectedRole==='user'?'sel-u':''" @click="selectedRole='user'">
             <span class="rc-ico">&#127799;</span>
             <div class="rc-name">Utilisateur</div>
           </div>
-          <div class="rc" :class="selectedRole==='admin' ? 'sel-a' : ''" @click="selectedRole='admin'">
+          <div class="rc" :class="selectedRole==='admin'?'sel-a':''" @click="selectedRole='admin'">
             <span class="rc-ico">&#128081;</span>
             <div class="rc-name">Administrateur</div>
           </div>
@@ -177,29 +195,23 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
           <input class="finp" v-model="loginForm.password" type="password" placeholder="••••••••" @keyup.enter="doLogin">
         </div>
         <div class="msg-err" v-if="loginError">{{ loginError }}</div>
-        <button class="btn-login" :class="selectedRole==='admin' ? 'bla' : 'blu'" @click="doLogin">
-          {{ selectedRole === 'admin' ? 'Connexion Admin' : 'Connexion' }}
+        <button class="btn-login" :class="selectedRole==='admin'?'bla':'blu'" @click="doLogin">
+          {{ selectedRole==='admin' ? 'Connexion Admin' : 'Connexion' }}
         </button>
       </div>
     </div>
   </div>
 
-  <!-- ══════ APP ══════ -->
+  <!-- APP -->
   <div v-if="currentUser">
-
-    <!-- TOPBAR -->
     <div class="topbar">
       <div class="tb-logo">&#127800; Bloom</div>
       <div class="tb-r">
         <div class="uchip">
-          <div class="av" :class="currentUser.role==='admin' ? 'av-a' : 'av-u'">
-            {{ currentUser.username[0].toUpperCase() }}
-          </div>
+          <div class="av" :class="currentUser.role==='admin'?'av-a':'av-u'">{{ currentUser.username[0].toUpperCase() }}</div>
           <span>{{ currentUser.username }}</span>
         </div>
-        <span class="rpill" :class="currentUser.role==='admin' ? 'rp-a' : 'rp-u'">
-          {{ currentUser.role==='admin' ? 'Admin' : 'User' }}
-        </span>
+        <span class="rpill" :class="currentUser.role==='admin'?'rp-a':'rp-u'">{{ currentUser.role==='admin'?'Admin':'User' }}</span>
         <button class="btn-out" @click="doLogout">Deconnexion</button>
       </div>
     </div>
@@ -212,149 +224,100 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
           <span v-if="currentUser.role==='admin'">Vue <em class="hl-a">Admin</em> &#128081;</span>
           <span v-else>Mes <em class="hl-u">taches</em> &#127799;</span>
         </h1>
-        <p class="hero-s">
-          {{ currentUser.role==='admin' ? 'Supervisez toutes les taches.' : 'Bonjour ' + currentUser.username + ' — belle journee !' }}
-        </p>
+        <p class="hero-s">{{ currentUser.role==='admin' ? 'Supervisez toutes les taches.' : 'Bonjour '+currentUser.username+' !' }}</p>
       </div>
 
       <!-- STATS -->
       <div class="stats">
-        <div class="sc">
-          <span class="sc-ico">&#128203;</span>
-          <div>
-            <div class="sc-num">{{ totalTasks }}</div>
-            <div class="sc-lbl">Total</div>
-          </div>
-        </div>
-        <div class="sc">
-          <span class="sc-ico">&#9989;</span>
-          <div>
-            <div class="sc-num" style="color:#5a9a5a">{{ doneTasks }}</div>
-            <div class="sc-lbl">Completees</div>
-          </div>
-        </div>
-        <div class="sc">
-          <span class="sc-ico">&#9203;</span>
-          <div>
-            <div class="sc-num" style="color:#c07050">{{ pendingTasks }}</div>
-            <div class="sc-lbl">En attente</div>
-          </div>
-        </div>
+        <div class="sc"><span class="sc-ico">&#128203;</span><div><div class="sc-num">{{ totalTasks }}</div><div class="sc-lbl">Total</div></div></div>
+        <div class="sc"><span class="sc-ico">&#9989;</span><div><div class="sc-num" style="color:#5a9a5a">{{ doneTasks }}</div><div class="sc-lbl">Completees</div></div></div>
+        <div class="sc"><span class="sc-ico">&#9203;</span><div><div class="sc-num" style="color:#c07050">{{ pendingTasks }}</div><div class="sc-lbl">En attente</div></div></div>
       </div>
 
       <!-- ADMIN FILTER -->
       <div class="admin-banner" v-if="currentUser.role==='admin'">
         <div style="display:flex;align-items:center;gap:.75rem">
           <span style="font-size:1.5rem">&#128081;</span>
-          <div>
-            <div style="font-weight:600;color:#a07010">Vue Administrateur</div>
-            <div style="font-size:.78rem;color:var(--t3)">Filtrer par utilisateur</div>
-          </div>
+          <div><div style="font-weight:600;color:#a07010">Vue Administrateur</div><div style="font-size:.78rem;color:var(--t3)">Filtrer par utilisateur</div></div>
         </div>
         <div class="ab-chips">
-          <div class="ab-chip" :class="adminFilter==='all' ? 'act' : ''" @click="adminFilter='all'">Tous</div>
-          <div class="ab-chip" v-for="u in allOwners" :key="u" :class="adminFilter===u ? 'act' : ''" @click="adminFilter=u">
-            {{ u }}
-          </div>
+          <div class="ab-chip" :class="adminFilter==='all'?'act':''" @click="adminFilter='all'">Tous</div>
+          <div class="ab-chip" v-for="u in allOwners" :key="u" :class="adminFilter===u?'act':''" @click="adminFilter=u">{{ u }}</div>
         </div>
       </div>
 
-      <!-- MESSAGE -->
+      <!-- MESSAGES -->
       <div class="msg-ok" v-if="successMsg">{{ successMsg }}</div>
       <div class="msg-err" v-if="errorMsg">{{ errorMsg }}</div>
 
-      <!-- ADD TASK -->
+      <!-- ADD CARD -->
       <div class="add-card">
-        <span class="ac-title">&#9999; Nouvelle tache</span>
+        <div class="ac-hdr">
+          <span class="ac-title">&#9999; Nouvelle tache</span>
+          <button class="cal-btn" :class="selectedDate?'has-date':''" @click="openCal">
+            &#128197; {{ selectedDate ? formatDateShort(selectedDate) : 'Choisir une date' }}
+          </button>
+        </div>
+
+        <!-- EMOJI PICKER -->
+        <div class="erow">
+          <div
+            class="ep"
+            v-for="(e,i) in emojis"
+            :key="i"
+            :class="selectedEmoji===e?'on':''"
+            @click="selectedEmoji=e"
+          >{{ e }}</div>
+        </div>
+
         <div class="add-row">
-          <input
-            class="ai"
-            v-model="newTask.text"
-            type="text"
-            placeholder="Que voulez-vous accomplir ?"
-            maxlength="120"
-            @keyup.enter="addTask"
-          >
+          <input class="ai" v-model="newTask.text" type="text" placeholder="Que voulez-vous accomplir ?" maxlength="120" @keyup.enter="addTask">
           <select class="as_" v-model="newTask.tag">
-            <option value="travail">Travail</option>
-            <option value="personnel">Personnel</option>
-            <option value="etude">Etude</option>
-            <option value="urgent">Urgent</option>
+            <option value="travail">&#128188; Travail</option>
+            <option value="personnel">&#127968; Personnel</option>
+            <option value="etude">&#128218; Etude</option>
+            <option value="urgent">&#128680; Urgent</option>
           </select>
           <select class="as_" v-model="newTask.priority">
             <option value="normale">Normale</option>
             <option value="haute">Haute</option>
             <option value="basse">Basse</option>
           </select>
-          <button
-            class="btn-add"
-            :class="currentUser.role==='admin' ? 'btn-add-a' : ''"
-            @click="addTask"
-          >
-            + Ajouter
-          </button>
+          <button class="btn-add" :class="currentUser.role==='admin'?'btn-add-a':''" @click="addTask">+ Ajouter</button>
         </div>
       </div>
 
-      <!-- TASKS LIST -->
+      <!-- TASKS -->
       <div>
         <div class="tasks-hdr">
           <div class="th-title">&#128221; Liste des taches</div>
           <div class="fg">
-            <button
-              class="fb"
-              :class="filter==='all' ? (currentUser.role==='admin' ? 'active-a' : 'active') : ''"
-              @click="filter='all'"
-            >Toutes</button>
-            <button
-              class="fb"
-              :class="filter==='pending' ? (currentUser.role==='admin' ? 'active-a' : 'active') : ''"
-              @click="filter='pending'"
-            >En cours</button>
-            <button
-              class="fb"
-              :class="filter==='done' ? (currentUser.role==='admin' ? 'active-a' : 'active') : ''"
-              @click="filter='done'"
-            >Terminees</button>
+            <button class="fb" :class="filter==='all'?(currentUser.role==='admin'?'fa-a':'fa-u'):''" @click="filter='all'">Toutes</button>
+            <button class="fb" :class="filter==='pending'?(currentUser.role==='admin'?'fa-a':'fa-u'):''" @click="filter='pending'">En cours</button>
+            <button class="fb" :class="filter==='done'?(currentUser.role==='admin'?'fa-a':'fa-u'):''" @click="filter='done'">Terminees</button>
           </div>
         </div>
 
-        <!-- LISTE VIDE -->
         <div class="empty" v-if="filteredTasks.length===0">
           <span class="eico">&#127800;</span>
           <div class="ett">Aucune tache</div>
           <div class="esub">Ajoutez-en une ci-dessus !</div>
         </div>
 
-        <!-- TACHES -->
         <div class="tl">
-          <div
-            class="ti"
-            v-for="task in filteredTasks"
-            :key="task.id"
-            :class="[priorityClass(task.priority), task.done ? 'done-task' : '']"
-          >
-            <!-- BADGE --><div class="ebadge">&#128204;</div>
-            <div
-              class="chk"
-              :class="task.done ? 'ck-u' : ''"
-              @click="toggleTask(task)"
-            >
-              {{ task.done ? '&#10003;' : '' }}
-            </div>
-
-            <!-- CONTENU -->
+          <div class="ti" v-for="task in filteredTasks" :key="task.id" :class="[priorityClass(task.priority), task.done?'done-task':'']">
+            <div class="ebadge">{{ task.emoji || defaultEmoji }}</div>
+            <div class="chk" :class="task.done?(currentUser.role==='admin'?'ck-a':'ck-u'):''" @click="toggleTask(task)">{{ task.done?'&#10003;':'' }}</div>
             <div class="tb_">
               <div class="tt">{{ task.text }}</div>
               <div class="tm">
                 <span class="td">{{ formatDate(task.created_at) }}</span>
+                <span class="date-pill" v-if="task.date">{{ formatDateShort(task.date) }}</span>
                 <span class="ttag" :class="'tag-'+task.tag">{{ task.tag }}</span>
                 <span class="pch" :class="priorityClass(task.priority)">{{ task.priority }}</span>
                 <span class="own-pill" v-if="currentUser.role==='admin'">@{{ task.owner }}</span>
               </div>
             </div>
-
-            <!-- SUPPRIMER -->
             <button class="btn-del" @click="deleteTask(task.id)">&#10005;</button>
           </div>
         </div>
@@ -363,275 +326,311 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--t1);mi
     </div>
   </div>
 
+  <!-- CALENDRIER POPUP -->
+  <div class="cal-overlay" v-if="showCal" @click.self="showCal=false">
+    <div class="cal-popup">
+      <div class="cal-pop-header">
+        <div class="cal-pop-title">&#128197; Choisir une date</div>
+        <button class="cal-pop-close" @click="showCal=false">X</button>
+      </div>
+      <div class="cal-nav-row">
+        <div class="cal-month-lbl">{{ calMonthLabel }}</div>
+        <div class="cal-nav-grp">
+          <button class="cnb" @click="calPrev">&#8249;</button>
+          <button class="cnb" @click="calGoToday">&#9679;</button>
+          <button class="cnb" @click="calNext">&#8250;</button>
+        </div>
+      </div>
+      <div class="cal-grid">
+        <div class="cal-dname" v-for="j in jours" :key="j">{{ j }}</div>
+        <div class="cal-d empty-d" v-for="n in calStartOffset" :key="'e'+n"></div>
+        <div
+          class="cal-d"
+          v-for="d in calDaysInMonth"
+          :key="d"
+          :class="calDayClass(d)"
+          @click="pickCalDay(d)"
+        >{{ d }}</div>
+      </div>
+      <div class="cal-pop-footer">
+        <div class="cal-sel-txt">{{ calTempDate ? 'Selectionnee : '+calTempDate : 'Aucune date' }}</div>
+        <button class="btn-cal-clear" @click="calTempDate=null">Effacer</button>
+        <button class="btn-cal-ok" @click="confirmCal">Confirmer</button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script>
-const { createApp, ref, computed, onMounted } = Vue;
+const { createApp, ref, computed } = Vue;
 
-// ═══════════════════════════════
-// DONNEES DEMO (fallback si pas d API)
-// ═══════════════════════════════
 const DEMO_USERS = [
-  {id:1,  username:'aya',     password:'aya123',     role:'user'},
-  {id:2,  username:'omar',    password:'omar123',    role:'user'},
-  {id:3,  username:'fatima',  password:'fatima123',  role:'user'},
-  {id:4,  username:'youssef', password:'youssef123', role:'user'},
-  {id:5,  username:'sara',    password:'sara123',    role:'user'},
-  {id:6,  username:'karim',   password:'karim123',   role:'user'},
-  {id:7,  username:'nadia',   password:'nadia123',   role:'user'},
-  {id:8,  username:'hamza',   password:'hamza123',   role:'user'},
-  {id:9,  username:'leila',   password:'leila123',   role:'user'},
-  {id:10, username:'mehdi',   password:'mehdi123',   role:'user'},
-  {id:11, username:'admin',   password:'admin123',   role:'admin'}
+  {id:1,username:'aya',password:'aya123',role:'user'},
+  {id:2,username:'omar',password:'omar123',role:'user'},
+  {id:3,username:'fatima',password:'fatima123',role:'user'},
+  {id:4,username:'youssef',password:'youssef123',role:'user'},
+  {id:5,username:'sara',password:'sara123',role:'user'},
+  {id:6,username:'karim',password:'karim123',role:'user'},
+  {id:7,username:'nadia',password:'nadia123',role:'user'},
+  {id:8,username:'hamza',password:'hamza123',role:'user'},
+  {id:9,username:'leila',password:'leila123',role:'user'},
+  {id:10,username:'mehdi',password:'mehdi123',role:'user'},
+  {id:11,username:'admin',password:'admin123',role:'admin'}
 ];
 
-const LS_KEY = 'bloom_vue_v1';
+const EC = [128204,127919,128161,128293,11088,128218,128187,127947,127822,127912,9992,127925,128722,129529,128188,128222,129688,127807,127968,9889];
+const EMOJIS = EC.map(c => String.fromCodePoint(c));
+const PIN = String.fromCodePoint(128204);
+const MOIS = ['Janvier','Fevrier','Mars','Avril','Mai','Juin','Juillet','Aout','Septembre','Octobre','Novembre','Decembre'];
+const JOURS_SHORT = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+const LS_KEY = 'bloom_vue_v2';
 
 createApp({
   setup() {
-
-    // ═══ STATE ═══
     const currentUser  = ref(null);
     const selectedRole = ref('user');
-    const loginForm    = ref({ username: '', password: '' });
+    const loginForm    = ref({username:'',password:''});
     const loginError   = ref('');
     const tasks        = ref([]);
-    const newTask      = ref({ text: '', tag: 'travail', priority: 'normale' });
+    const newTask      = ref({text:'',tag:'travail',priority:'normale'});
     const filter       = ref('all');
     const adminFilter  = ref('all');
     const successMsg   = ref('');
     const errorMsg     = ref('');
+    const emojis       = ref(EMOJIS);
+    const selectedEmoji = ref(PIN);
+    const defaultEmoji  = ref(PIN);
 
-    // ═══ AXIOS BASE URL ═══
-    const API = axios.create({ baseURL: '/api' });
+    // CALENDRIER
+    const showCal      = ref(false);
+    const selectedDate = ref(null);
+    const calTempDate  = ref(null);
+    const calYear      = ref(new Date().getFullYear());
+    const calMonth     = ref(new Date().getMonth());
+    const jours        = ref(JOURS_SHORT);
 
-    // ═══ localStorage ═══
+    const calMonthLabel  = computed(() => MOIS[calMonth.value] + ' ' + calYear.value);
+    const calDaysInMonth = computed(() => new Date(calYear.value, calMonth.value+1, 0).getDate());
+    const calStartOffset = computed(() => {
+      let d = new Date(calYear.value, calMonth.value, 1).getDay() - 1;
+      return d < 0 ? 6 : d;
+    });
+
+    function calDayClass(d) {
+      const ds = dateStr(new Date(calYear.value, calMonth.value, d));
+      const today = dateStr(new Date());
+      let cls = [];
+      if (ds === today) cls.push('today');
+      if (ds === calTempDate.value) cls.push('sel');
+      return cls.join(' ');
+    }
+
+    function pickCalDay(d) {
+      const ds = dateStr(new Date(calYear.value, calMonth.value, d));
+      calTempDate.value = calTempDate.value === ds ? null : ds;
+    }
+
+    function confirmCal() {
+      selectedDate.value = calTempDate.value;
+      showCal.value = false;
+    }
+
+    function openCal() {
+      calTempDate.value = selectedDate.value;
+      showCal.value = true;
+    }
+
+    function calPrev() {
+      if (calMonth.value === 0) { calMonth.value = 11; calYear.value--; }
+      else calMonth.value--;
+    }
+
+    function calNext() {
+      if (calMonth.value === 11) { calMonth.value = 0; calYear.value++; }
+      else calMonth.value++;
+    }
+
+    function calGoToday() {
+      const n = new Date();
+      calYear.value = n.getFullYear();
+      calMonth.value = n.getMonth();
+    }
+
+    // STORAGE
     function lsLoad() {
       try {
         const r = localStorage.getItem(LS_KEY);
         if (r) { const p = JSON.parse(r); if (Array.isArray(p)) return p; }
       } catch(e) {}
-      return demoTasks();
+      return makeDemo();
     }
 
     function lsSave(arr) {
       try { localStorage.setItem(LS_KEY, JSON.stringify(arr)); } catch(e) {}
     }
 
-    function demoTasks() {
+    function makeDemo() {
       const t = new Date().toISOString();
       const arr = [
-        {id:1001, text:'Finir le rapport de stage',       owner:'aya',    tag:'etude',     priority:'haute',   done:false, created_at:t},
-        {id:1002, text:'Reviser le cours C++',             owner:'aya',    tag:'etude',     priority:'normale', done:true,  created_at:t},
-        {id:1003, text:'Preparer la presentation DevOps',  owner:'omar',   tag:'travail',   priority:'haute',   done:false, created_at:t},
-        {id:1004, text:'Faire les courses',                owner:'fatima', tag:'personnel', priority:'basse',   done:false, created_at:t},
-        {id:1005, text:'Sport 30 minutes',                 owner:'aya',    tag:'personnel', priority:'normale', done:false, created_at:t}
+        {id:1001,text:'Finir le rapport de stage',emoji:PIN,owner:'aya',tag:'etude',priority:'haute',done:false,date:dateStr(new Date()),created_at:t},
+        {id:1002,text:'Reviser le cours C++',emoji:PIN,owner:'aya',tag:'etude',priority:'normale',done:true,date:dateStr(new Date()),created_at:t},
+        {id:1003,text:'Preparer la presentation DevOps',emoji:PIN,owner:'omar',tag:'travail',priority:'haute',done:false,date:dateStr(new Date()),created_at:t},
+        {id:1004,text:'Faire les courses',emoji:PIN,owner:'fatima',tag:'personnel',priority:'basse',done:false,date:dateStr(new Date()),created_at:t},
+        {id:1005,text:'Sport 30 minutes',emoji:PIN,owner:'aya',tag:'personnel',priority:'normale',done:false,date:dateStr(new Date()),created_at:t}
       ];
       lsSave(arr);
       return arr;
     }
 
-    // ═══ MESSAGES ═══
-    function showOk(msg) {
-      successMsg.value = msg;
-      setTimeout(() => successMsg.value = '', 2500);
-    }
-    function showErr(msg) {
-      errorMsg.value = msg;
-      setTimeout(() => errorMsg.value = '', 3000);
-    }
+    // MESSAGES
+    function showOk(msg) { successMsg.value = msg; setTimeout(() => successMsg.value = '', 2500); }
+    function showErr(msg) { errorMsg.value = msg; setTimeout(() => errorMsg.value = '', 3000); }
 
-    // ═══ LOGIN via Axios ═══
+    // LOGIN
     async function doLogin() {
       const u = loginForm.value.username.trim();
       const p = loginForm.value.password.trim();
       if (!u || !p) { loginError.value = 'Veuillez remplir tous les champs.'; return; }
-
       try {
-        // Appel API avec Axios
-        const res = await API.post('/login', { username: u, password: p });
+        const res = await axios.post('/api/login', {username:u,password:p});
         if (res.data.success) {
           const user = res.data.data;
-          if (selectedRole.value === 'admin' && user.role !== 'admin') {
-            loginError.value = 'Ce compte n est pas administrateur.'; return;
-          }
-          if (selectedRole.value === 'user' && user.role === 'admin') {
-            loginError.value = 'Utilisez le mode Admin.'; return;
-          }
+          if (selectedRole.value==='admin'&&user.role!=='admin') { loginError.value='Ce compte n est pas admin.'; return; }
+          if (selectedRole.value==='user'&&user.role==='admin') { loginError.value='Utilisez le mode Admin.'; return; }
           loginError.value = '';
           currentUser.value = user;
           loadTasks();
           return;
         }
-      } catch(e) {
-        // Fallback demo si API non disponible
-      }
-
-      // Fallback demo
-      const found = DEMO_USERS.find(du => du.username === u && du.password === p);
+      } catch(e) {}
+      const found = DEMO_USERS.find(du => du.username===u && du.password===p);
       if (!found) { loginError.value = 'Identifiants incorrects.'; return; }
-      if (selectedRole.value === 'admin' && found.role !== 'admin') {
-        loginError.value = 'Ce compte n est pas administrateur.'; return;
-      }
-      if (selectedRole.value === 'user' && found.role === 'admin') {
-        loginError.value = 'Utilisez le mode Admin.'; return;
-      }
+      if (selectedRole.value==='admin'&&found.role!=='admin') { loginError.value='Ce compte n est pas admin.'; return; }
+      if (selectedRole.value==='user'&&found.role==='admin') { loginError.value='Utilisez le mode Admin.'; return; }
       loginError.value = '';
-      currentUser.value = { id: found.id, username: found.username, role: found.role };
+      currentUser.value = {id:found.id,username:found.username,role:found.role};
       loadTasks();
     }
 
     function doLogout() {
-      currentUser.value = null;
-      tasks.value = [];
-      loginForm.value = { username: '', password: '' };
-      loginError.value = '';
-      filter.value = 'all';
-      adminFilter.value = 'all';
+      currentUser.value=null; tasks.value=[];
+      loginForm.value={username:'',password:''};
+      loginError.value=''; filter.value='all'; adminFilter.value='all';
+      selectedDate.value=null; selectedEmoji.value=PIN;
     }
 
-    // ═══ CHARGER LES TACHES via Axios ═══
+    // CHARGER TACHES
     async function loadTasks() {
       try {
-        const url = currentUser.value.role === 'admin'
+        const url = currentUser.value.role==='admin'
           ? '/api/tasks?role=admin'
-          : '/api/tasks?owner=' + currentUser.value.username + '&role=user';
+          : '/api/tasks?owner='+currentUser.value.username+'&role=user';
         const res = await axios.get(url);
         if (res.data.success && Array.isArray(res.data.data)) {
-          tasks.value = res.data.data;
+          tasks.value = res.data.data.map(t => ({...t, emoji: t.emoji&&t.emoji!=='pin'&&t.emoji.length<=4 ? t.emoji : PIN}));
           lsSave(tasks.value);
           return;
         }
       } catch(e) {}
-      // Fallback localStorage
       const all = lsLoad();
-      tasks.value = currentUser.value.role === 'admin'
-        ? all
-        : all.filter(t => t.owner === currentUser.value.username);
+      tasks.value = currentUser.value.role==='admin' ? all : all.filter(t => t.owner===currentUser.value.username);
     }
 
-    // ═══ AJOUTER TACHE via Axios ═══
+    // AJOUTER TACHE
     async function addTask() {
       const txt = newTask.value.text.trim();
       if (!txt) { showErr('Saisissez une tache !'); return; }
-
       const task = {
         text    : txt,
+        emoji   : selectedEmoji.value,
         owner   : currentUser.value.username,
         tag     : newTask.value.tag,
         priority: newTask.value.priority,
-        date    : new Date().toISOString().split('T')[0]
+        date    : selectedDate.value || dateStr(new Date())
       };
-
-      try {
-        // Appel API avec Axios
-        const res = await API.post('/tasks', task);
-        if (res.data.success) {
-          tasks.value.unshift(res.data.data);
-          lsSave(tasks.value);
-          newTask.value.text = '';
-          showOk('Tache ajoutee avec succes !');
-          return;
-        }
-      } catch(e) {}
-
-      // Fallback localStorage
-      const nt = {
-        id: Date.now(),
-        ...task,
-        done: false,
-        created_at: new Date().toISOString()
-      };
+      const nt = {id:Date.now(),...task,done:false,created_at:new Date().toISOString()};
+      // Ajouter localement immediatement
+      tasks.value.unshift(nt);
       const all = lsLoad();
       all.push(nt);
       lsSave(all);
-      tasks.value.unshift(nt);
       newTask.value.text = '';
       showOk('Tache ajoutee !');
+      // Essayer API en arriere-plan
+      try { await axios.post('/api/tasks', task); } catch(e) {}
     }
 
-    // ═══ SUPPRIMER TACHE via Axios ═══
+    // SUPPRIMER
     async function deleteTask(id) {
       if (!confirm('Supprimer cette tache ?')) return;
-      try {
-        await API.delete('/tasks/' + id);
-      } catch(e) {}
-      // Supprimer localement dans tous les cas
       tasks.value = tasks.value.filter(t => t.id !== id);
-      const all = lsLoad().filter(t => t.id !== id);
-      lsSave(all);
+      lsSave(lsLoad().filter(t => t.id !== id));
       showOk('Tache supprimee !');
+      try { await axios.delete('/api/tasks/'+id); } catch(e) {}
     }
 
-    // ═══ COCHER / DECOCHER via Axios ═══
+    // TOGGLE
     async function toggleTask(task) {
-      try {
-        await API.patch('/tasks/' + task.id + '/toggle');
-      } catch(e) {}
-      // Mettre a jour localement dans tous les cas
       task.done = !task.done;
       const all = lsLoad();
-      const found = all.find(t => t.id === task.id);
-      if (found) found.done = task.done;
+      const f = all.find(t => t.id===task.id);
+      if (f) f.done = task.done;
       lsSave(all);
+      try { await axios.patch('/api/tasks/'+task.id+'/toggle'); } catch(e) {}
     }
 
-    // ═══ COMPUTED ═══
+    // COMPUTED
     const filteredTasks = computed(() => {
       let list = tasks.value;
-
-      // Filtre admin par utilisateur
-      if (currentUser.value?.role === 'admin' && adminFilter.value !== 'all') {
-        list = list.filter(t => t.owner === adminFilter.value);
-      }
-
-      // Filtre status
-      if (filter.value === 'pending') list = list.filter(t => !t.done);
-      if (filter.value === 'done')    list = list.filter(t =>  t.done);
-
-      // Tri
-      return [...list].sort((a, b) => {
-        if (!!a.done !== !!b.done) return a.done ? 1 : -1;
-        return new Date(b.created_at) - new Date(a.created_at);
+      if (currentUser.value?.role==='admin' && adminFilter.value!=='all')
+        list = list.filter(t => t.owner===adminFilter.value);
+      if (filter.value==='pending') list = list.filter(t => !t.done);
+      if (filter.value==='done')    list = list.filter(t =>  t.done);
+      return [...list].sort((a,b) => {
+        if (!!a.done!==!!b.done) return a.done?1:-1;
+        return new Date(b.created_at)-new Date(a.created_at);
       });
     });
 
     const totalTasks   = computed(() => tasks.value.length);
     const doneTasks    = computed(() => tasks.value.filter(t => t.done).length);
     const pendingTasks = computed(() => tasks.value.filter(t => !t.done).length);
+    const allOwners    = computed(() => [...new Set(tasks.value.map(t => t.owner))]);
 
-    const allOwners = computed(() => {
-      const owners = [...new Set(tasks.value.map(t => t.owner))];
-      return owners;
-    });
+    // UTILS
+    function priorityClass(p) { return p==='haute'?'ph':p==='basse'?'pb':'pn'; }
 
-    // ═══ UTILITAIRES ═══
-    function priorityClass(p) {
-      return p === 'haute' ? 'ph' : p === 'basse' ? 'pb' : 'pn';
+    function dateStr(d) {
+      const y=d.getFullYear(),m=d.getMonth()+1,j=d.getDate();
+      return y+'-'+(m<10?'0'+m:m)+'-'+(j<10?'0'+j:j);
     }
 
     function formatDate(d) {
       if (!d) return '';
-      return new Date(d).toLocaleDateString('fr-FR', {
-        day: 'numeric', month: 'short',
-        hour: '2-digit', minute: '2-digit'
-      });
+      return new Date(d).toLocaleDateString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+    }
+
+    function formatDateShort(d) {
+      if (!d) return '';
+      return new Date(d+'T12:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'short'});
     }
 
     return {
       currentUser, selectedRole, loginForm, loginError,
       tasks, newTask, filter, adminFilter,
       successMsg, errorMsg,
+      emojis, selectedEmoji, defaultEmoji,
+      showCal, selectedDate, calTempDate,
+      calYear, calMonth, jours,
+      calMonthLabel, calDaysInMonth, calStartOffset,
       filteredTasks, totalTasks, doneTasks, pendingTasks, allOwners,
       doLogin, doLogout, addTask, deleteTask, toggleTask,
-      priorityClass, formatDate
+      priorityClass, formatDate, formatDateShort,
+      openCal, confirmCal, calPrev, calNext, calGoToday, calDayClass, pickCalDay
     };
   }
 }).mount('#app');
 </script>
 </body>
 </html>
-
-
-
-
