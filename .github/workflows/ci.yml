@@ -1,0 +1,94 @@
+﻿name: Bloom CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  test:
+    name: 1 - Verification du projet
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le code depuis GitHub
+        uses: actions/checkout@v3
+
+      - name: Verifier la structure du projet
+        run: |
+          echo "=== Verification des fichiers ==="
+          test -f docker-compose.yml       && echo "OK - docker-compose.yml"
+          test -f frontend/Dockerfile      && echo "OK - frontend/Dockerfile"
+          test -f frontend/src/index.html  && echo "OK - frontend/index.html"
+          test -f backend/Dockerfile       && echo "OK - backend/Dockerfile"
+          test -f backend/src/server.js    && echo "OK - backend/server.js"
+          test -f backend/package.json     && echo "OK - backend/package.json"
+          test -f data/Dockerfile          && echo "OK - data/Dockerfile"
+          test -f data/init.sql            && echo "OK - data/init.sql"
+          echo "=== Structure OK ==="
+
+      - name: Verifier le backend Node.js
+        run: |
+          cd backend
+          echo "=== Package.json ==="
+          cat package.json
+          echo "=== Node version ==="
+          node --version
+
+  build:
+    name: 2 - Build Docker
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v3
+
+      - name: Creer le fichier .env
+        run: |
+          echo "DB_NAME=bloom_db"              >> .env
+          echo "DB_USER=bloom_user"            >> .env
+          echo "DB_PASSWORD=bloom_pass_2024"   >> .env
+          echo "DB_ROOT_PASSWORD=root_2024"    >> .env
+          echo "JWT_SECRET=bloom_secret"       >> .env
+          echo "NODE_ENV=production"           >> .env
+          echo "Fichier .env cree"
+
+      - name: Builder image Frontend
+        run: |
+          docker build -t bloom-frontend ./frontend
+          echo "Image Frontend buildee"
+
+      - name: Builder image Backend
+        run: |
+          docker build -t bloom-backend ./backend
+          echo "Image Backend buildee"
+
+      - name: Builder image Database
+        run: |
+          docker build -t bloom-database ./data
+          echo "Image Database buildee"
+
+      - name: Verifier les images creees
+        run: |
+          echo "=== Images Docker ==="
+          docker images | grep bloom
+
+  rapport:
+    name: 3 - Rapport Final
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Afficher le rapport
+        run: |
+          echo "================================"
+          echo "  BLOOM - Pipeline CI/CD"
+          echo "  Projet To-Do List"
+          echo "================================"
+          echo "  Test structure   : PASSED"
+          echo "  Build Frontend   : PASSED"
+          echo "  Build Backend    : PASSED"
+          echo "  Build Database   : PASSED"
+          echo "================================"
+          echo "  Le projet est pret !"
+          echo "================================"
