@@ -65,7 +65,7 @@ app.post('/api/tasks', async (req, res) => {
     if (!text || !owner) return res.status(400).json({ success: false, error: 'text et owner requis' });
     const [result] = await pool.query(
       'INSERT INTO tasks (text, emoji, owner, tag, priority, date) VALUES (?, ?, ?, ?, ?, ?)',
-      [text, emoji || 'task', owner, tag || 'personnel', priority || 'normale', date || null]
+      [text, emoji || 'pin', owner, tag || 'personnel', priority || 'normale', date || null]
     );
     const [rows] = await pool.query('SELECT * FROM tasks WHERE id = ?', [result.insertId]);
     res.status(201).json({ success: true, data: rows[0] });

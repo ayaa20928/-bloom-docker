@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS tasks (
   id         INT AUTO_INCREMENT PRIMARY KEY,
   text       VARCHAR(255) NOT NULL,
-  emoji      VARCHAR(10) DEFAULT 'task',
+  emoji      VARCHAR(20) DEFAULT 'pin',
   owner      VARCHAR(60) NOT NULL,
   tag        ENUM('travail','personnel','etude','urgent') DEFAULT 'personnel',
   priority   ENUM('haute','normale','basse') DEFAULT 'normale',
@@ -36,8 +36,8 @@ INSERT INTO users (username, password, role) VALUES
   ('admin',   'admin123',   'admin');
 
 INSERT INTO tasks (text, emoji, owner, tag, priority, done, date) VALUES
-  ('Finir le rapport de stage',        'task', 'aya',     'etude',     'haute',   0, CURDATE()),
-  ('Reviser le cours C++',             'task', 'aya',     'etude',     'normale', 1, DATE_SUB(CURDATE(),INTERVAL 1 DAY)),
-  ('Preparer la presentation DevOps',  'task', 'omar',    'travail',   'haute',   0, CURDATE()),
-  ('Faire les courses',                'task', 'fatima',  'personnel', 'basse',   0, DATE_ADD(CURDATE(),INTERVAL 1 DAY)),
-  ('Sport 30 minutes',                 'task', 'aya',     'personnel', 'normale', 0, CURDATE());
+  ('Finir le rapport de stage',       'pin', 'aya',    'etude',    'haute',   0, CURDATE()),
+  ('Reviser le cours C++',            'pin', 'aya',    'etude',    'normale', 1, DATE_SUB(CURDATE(),INTERVAL 1 DAY)),
+  ('Preparer la presentation DevOps', 'pin', 'omar',   'travail',  'haute',   0, CURDATE()),
+  ('Faire les courses',               'pin', 'fatima', 'personnel','basse',   0, DATE_ADD(CURDATE(),INTERVAL 1 DAY)),
+  ('Sport 30 minutes',                'pin', 'aya',    'personnel','normale', 0, CURDATE());

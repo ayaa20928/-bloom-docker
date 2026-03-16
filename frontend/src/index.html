@@ -77,7 +77,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text1)
 .cal-trigger-btn:hover{background:#ede4f8;border-color:#c4a0d0;color:#7040a0}
 .cal-trigger-btn.has-date{background:#f0e8f8;border-color:#c4a0d0;color:#7040a0;font-weight:500}
 .erow{display:flex;gap:.4rem;margin-bottom:1.1rem;flex-wrap:wrap}
-.ep{width:40px;height:40px;border-radius:12px;border:1.5px solid var(--border);background:var(--cream);font-size:1.25rem;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.ep{width:40px;height:40px;border-radius:12px;border:1.5px solid var(--border);background:var(--cream);font-size:1.3rem;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;line-height:1}
 .ep:hover{background:var(--peach);border-color:var(--blush2);transform:scale(1.12)}
 .ep.on{background:var(--blush);border-color:var(--blush2);transform:scale(1.1);box-shadow:0 4px 14px rgba(238,184,168,.45)}
 .add-row{display:grid;grid-template-columns:1fr auto auto auto;gap:.75rem;align-items:center}
@@ -99,8 +99,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text1)
 .ph.ti::before{background:linear-gradient(90deg,#f0b8a8,#e07060)}.pn.ti::before{background:linear-gradient(90deg,#c4a0d0,#9060b8)}.pb.ti::before{background:linear-gradient(90deg,#a0d0a0,#60a860)}
 .ti:hover{transform:translateY(-2px);box-shadow:var(--s2);border-color:var(--border2)}
 .ti.done{opacity:.45}.ti.done .tt{text-decoration:line-through;color:var(--text3)}
-.emoji-badge{width:50px;height:50px;border-radius:14px;background:var(--cream2);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;transition:transform .2s}
-.ti:hover .emoji-badge{transform:scale(1.1) rotate(-4deg)}
+.ebadge{width:50px;height:50px;border-radius:14px;background:var(--cream2);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;transition:transform .2s;line-height:1}
+.ti:hover .ebadge{transform:scale(1.1) rotate(-4deg)}
 .chk{width:22px;height:22px;border-radius:7px;border:2px solid var(--border2);background:transparent;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .18s;font-size:11px;color:transparent}
 .chk.ck-u{background:linear-gradient(135deg,#c4a0d0,#9060b8);border-color:#9060b8;color:#fff}
 .chk.ck-a{background:linear-gradient(135deg,#e8c97a,#c8a840);border-color:#c8a840;color:#4a2e00}
@@ -161,38 +161,40 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text1)
 <body>
 <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
 <div id="app">
+
 <div id="login-screen">
   <div class="login-shell">
     <div class="ll">
-      <div class="ll-deco">🌸</div>
+      <div class="ll-deco">&#127800;</div>
       <div>
-        <div class="ll-brand">Bloom 🌷<br>To-Do List</div>
+        <div class="ll-brand">Bloom &#127799;<br>To-Do List</div>
         <p class="ll-sub">Organisez vos journees avec elegance.</p>
       </div>
       <ul class="ll-feats">
-        <li><span>✅</span><span>Gerez vos taches facilement</span></li>
-        <li><span>📅</span><span>Calendrier pour planifier par date</span></li>
-        <li><span>🎨</span><span>Emojis expressifs pour chaque tache</span></li>
-        <li><span>👑</span><span>Espace admin pour superviser tout</span></li>
+        <li><span>&#9989;</span><span>Gerez vos taches facilement</span></li>
+        <li><span>&#128197;</span><span>Calendrier pour planifier</span></li>
+        <li><span>&#127912;</span><span>Emojis pour chaque tache</span></li>
+        <li><span>&#128081;</span><span>Espace admin complet</span></li>
       </ul>
     </div>
     <div class="lr">
-      <h2 class="lr-title">Bienvenue 👋</h2>
+      <h2 class="lr-title">Bienvenue &#128075;</h2>
       <p class="lr-desc">Choisissez votre role et connectez-vous.</p>
       <div class="role-grid">
-        <div class="rc sel-u" id="rc-u" onclick="selRole('user')"><span class="rc-ico">🌷</span><div class="rc-name">Utilisateur</div></div>
-        <div class="rc" id="rc-a" onclick="selRole('admin')"><span class="rc-ico">👑</span><div class="rc-name">Administrateur</div></div>
+        <div class="rc sel-u" id="rc-u" onclick="selRole('user')"><span class="rc-ico">&#127799;</span><div class="rc-name">Utilisateur</div></div>
+        <div class="rc" id="rc-a" onclick="selRole('admin')"><span class="rc-ico">&#128081;</span><div class="rc-name">Administrateur</div></div>
       </div>
       <div class="fi"><label class="fl">Identifiant</label><input class="finp" id="inp-u" type="text" placeholder="Votre identifiant..." autocomplete="off"></div>
       <div class="fi"><label class="fl">Mot de passe</label><input class="finp" id="inp-p" type="password" placeholder="••••••••"></div>
-      <button class="btn-login blu" id="btn-l" onclick="doLogin()">🌸 Connexion</button>
+      <button class="btn-login blu" id="btn-l" onclick="doLogin()">&#127800; Connexion</button>
       <div class="lerr" id="lerr"></div>
     </div>
   </div>
 </div>
+
 <div id="main-screen">
   <div class="topbar">
-    <div class="tb-logo">🌸 Bloom</div>
+    <div class="tb-logo">&#127800; Bloom</div>
     <div class="tb-r">
       <div class="uchip"><div class="av av-u" id="tb-av"></div><span id="tb-name"></span></div>
       <span class="rpill" id="tb-pill"></span>
@@ -202,38 +204,38 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text1)
   <div class="ct">
     <div class="hero"><h1 class="hero-t" id="hero-t"></h1><p class="hero-s" id="hero-s"></p></div>
     <div class="stats">
-      <div class="sc"><span class="sc-ico">📋</span><div><div class="sc-num" id="s-tot">0</div><div class="sc-lbl">Total</div></div></div>
-      <div class="sc"><span class="sc-ico">✅</span><div><div class="sc-num" id="s-don" style="color:#5a9a5a">0</div><div class="sc-lbl">Completees</div></div></div>
-      <div class="sc"><span class="sc-ico">⏳</span><div><div class="sc-num" id="s-pen" style="color:#c07050">0</div><div class="sc-lbl">En attente</div></div></div>
+      <div class="sc"><span class="sc-ico">&#128203;</span><div><div class="sc-num" id="s-tot">0</div><div class="sc-lbl">Total</div></div></div>
+      <div class="sc"><span class="sc-ico">&#9989;</span><div><div class="sc-num" id="s-don" style="color:#5a9a5a">0</div><div class="sc-lbl">Completees</div></div></div>
+      <div class="sc"><span class="sc-ico">&#9203;</span><div><div class="sc-num" id="s-pen" style="color:#c07050">0</div><div class="sc-lbl">En attente</div></div></div>
     </div>
     <div class="admin-banner" id="admin-banner" style="display:none">
-      <div class="ab-left"><span style="font-size:1.5rem">👑</span><div><div class="ab-title">Vue Administrateur</div><div class="ab-sub">Filtrer par utilisateur</div></div></div>
+      <div class="ab-left"><span style="font-size:1.5rem">&#128081;</span><div><div class="ab-title">Vue Administrateur</div><div class="ab-sub">Filtrer par utilisateur</div></div></div>
       <div class="ab-chips" id="ab-chips"></div>
     </div>
     <div class="date-banner" id="date-banner" style="display:none">
-      <div class="db-left"><span style="font-size:1.4rem">📅</span><div><div class="db-date" id="db-date-txt"></div><div class="db-count" id="db-count-txt"></div></div></div>
-      <button class="db-clear" onclick="clearDate()">✕ Toutes les taches</button>
+      <div class="db-left"><span style="font-size:1.4rem">&#128197;</span><div><div class="db-date" id="db-date-txt"></div><div class="db-count" id="db-count-txt"></div></div></div>
+      <button class="db-clear" onclick="clearDate()">X Toutes les taches</button>
     </div>
     <div class="add-card">
       <div class="ac-hdr">
-        <span class="ac-title">✏️ Nouvelle tache</span>
-        <button class="cal-trigger-btn" id="cal-btn" onclick="openCal()">📅 <span id="cal-btn-txt">Choisir une date</span></button>
+        <span class="ac-title">&#9999; Nouvelle tache</span>
+        <button class="cal-trigger-btn" id="cal-btn" onclick="openCal()">&#128197; <span id="cal-btn-txt">Choisir une date</span></button>
       </div>
       <div class="erow" id="erow"></div>
       <div class="add-row">
         <input class="ai" id="task-inp" type="text" placeholder="Que voulez-vous accomplir ?" maxlength="120">
-        <select class="as_" id="task-tag"><option value="travail">💼 Travail</option><option value="personnel">🏠 Personnel</option><option value="etude">📚 Etude</option><option value="urgent">🚨 Urgent</option></select>
-        <select class="as_" id="task-prio"><option value="normale">🟣 Normale</option><option value="haute">🔴 Haute</option><option value="basse">🟢 Basse</option></select>
+        <select class="as_" id="task-tag"><option value="travail">Travail</option><option value="personnel">Personnel</option><option value="etude">Etude</option><option value="urgent">Urgent</option></select>
+        <select class="as_" id="task-prio"><option value="normale">Normale</option><option value="haute">Haute</option><option value="basse">Basse</option></select>
         <button class="btn-add ba-u" id="btn-add" onclick="addTask()">+ Ajouter</button>
       </div>
     </div>
     <div>
       <div class="tasks-hdr">
-        <div class="th-title">📝 Liste des taches</div>
+        <div class="th-title">&#128221; Liste des taches</div>
         <div class="fg">
           <button class="fb fa-u" id="ft-all" onclick="setFilt('all')">Toutes</button>
-          <button class="fb" id="ft-pending" onclick="setFilt('pending')">⏳ En cours</button>
-          <button class="fb" id="ft-done" onclick="setFilt('done')">✅ Terminees</button>
+          <button class="fb" id="ft-pending" onclick="setFilt('pending')">En cours</button>
+          <button class="fb" id="ft-done" onclick="setFilt('done')">Terminees</button>
         </div>
       </div>
       <div class="tl" id="tl"></div>
@@ -241,27 +243,44 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text1)
   </div>
 </div>
 </div>
+
 <div id="cal-overlay-wrap" style="display:none">
-  <div class="cal-overlay" onclick="cOverlay(event)">
+  <div class="cal-overlay" onclick="cOv(event)">
     <div class="cal-popup">
-      <div class="cal-pop-header"><div class="cal-pop-title">📅 Choisir une date</div><button class="cal-pop-close" onclick="closeCal()">✕</button></div>
-      <div class="cal-nav-row"><div class="cal-month-lbl" id="cal-month"></div><div class="cal-nav-grp"><button class="cnb" onclick="calPrev()">‹</button><button class="cnb" onclick="calToday()">●</button><button class="cnb" onclick="calNext()">›</button></div></div>
+      <div class="cal-pop-header"><div class="cal-pop-title">&#128197; Choisir une date</div><button class="cal-pop-close" onclick="closeCal()">X</button></div>
+      <div class="cal-nav-row"><div class="cal-month-lbl" id="cal-month"></div><div class="cal-nav-grp"><button class="cnb" onclick="calPrev()">&#8249;</button><button class="cnb" onclick="calToday()">&#9679;</button><button class="cnb" onclick="calNext()">&#8250;</button></div></div>
       <div class="cal-grid" id="cal-grid"></div>
       <div class="cal-pop-footer">
-        <div class="cal-selected-txt" id="cal-sel-txt"><em style="color:var(--text3)">Aucune date</em></div>
+        <div class="cal-selected-txt" id="cal-sel-txt">Aucune date</div>
         <button class="btn-cal-clear" onclick="clearCalSel()">Effacer</button>
-        <button class="btn-cal-ok" onclick="confirmCal()">✓ Confirmer</button>
+        <button class="btn-cal-ok" onclick="confirmCal()">Confirmer</button>
       </div>
     </div>
   </div>
 </div>
-<div class="tbox" id="tbox"></div><div id="mc"></div>
+
+<div class="tbox" id="tbox"></div>
+<div id="mc"></div>
+
 <script>
-const EMOJIS=[128204,127919,128161,128293,11088,128218,128187,127947,127822,127912,9992,127925,128722,129529,128188,128222,129688,127807,127968,9889].map(c=>String.fromCodePoint(c));
-const MF=['Janvier','Fevrier','Mars','Avril','Mai','Juin','Juillet','Aout','Septembre','Octobre','Novembre','Decembre'];
-const DF=['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
-let cu=null,st={filt:'all',ufilt:'all',emoji:'📌',selDate:null},calDate=new Date(),calTempSel=null;
-const DU=[
+// ═══ EMOJIS via codepoints Unicode ═══
+var ECODES = [128204,127919,128161,128293,11088,128218,128187,127947,127822,127912,9992,127925,128722,129529,128188,128222,129688,127807,127968,9889];
+var EMOJIS = ECODES.map(function(c){ return String.fromCodePoint(c); });
+var MF = ['Janvier','Fevrier','Mars','Avril','Mai','Juin','Juillet','Aout','Septembre','Octobre','Novembre','Decembre'];
+var DF = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
+
+// ═══ STATE ═══
+var cu = null;
+var selEmoji = String.fromCodePoint(128204);
+var filt = 'all';
+var ufilt = 'all';
+var selDate = null;
+var calDate = new Date();
+var calTempSel = null;
+var LSKEY = 'bloom_final_v1';
+
+// ═══ USERS DEMO ═══
+var DU = [
   {id:1,username:'aya',password:'aya123',role:'user'},
   {id:2,username:'omar',password:'omar123',role:'user'},
   {id:3,username:'fatima',password:'fatima123',role:'user'},
@@ -274,164 +293,416 @@ const DU=[
   {id:10,username:'mehdi',password:'mehdi123',role:'user'},
   {id:11,username:'admin',password:'admin123',role:'admin'}
 ];
-function tds(d){return d.toISOString().split('T')[0]}
-function ll(){try{return JSON.parse(localStorage.getItem('bv5'))||id()}catch{return id()}}
-function sl(t){localStorage.setItem('bv5',JSON.stringify(t))}
-function id(){
-  const t=tds(new Date()),h=tds(new Date(Date.now()-86400000)),dm=tds(new Date(Date.now()+86400000));
-  const dt=[
-    {id:1001,text:'Finir le rapport de stage',emoji:'task',owner:'aya',tag:'etude',priority:'haute',done:0,date:t,created_at:new Date().toISOString()},
-    {id:1002,text:'Reviser le cours C++',emoji:'task',owner:'aya',tag:'etude',priority:'normale',done:1,date:h,created_at:new Date(Date.now()-86400000).toISOString()},
-    {id:1003,text:'Preparer la presentation DevOps',emoji:'task',owner:'omar',tag:'travail',priority:'haute',done:0,date:t,created_at:new Date().toISOString()},
-    {id:1004,text:'Faire les courses',emoji:'task',owner:'fatima',tag:'personnel',priority:'basse',done:0,date:dm,created_at:new Date().toISOString()},
-    {id:1005,text:'Sport 30 minutes',emoji:'task',owner:'aya',tag:'personnel',priority:'normale',done:0,date:t,created_at:new Date().toISOString()}
-  ];sl(dt);return dt;
+
+// ═══ LOCAL STORAGE ═══
+function tds(d){
+  var y=d.getFullYear(), m=d.getMonth()+1, dd=d.getDate();
+  return y+'-'+(m<10?'0'+m:m)+'-'+(dd<10?'0'+dd:dd);
 }
+
+function loadTasks(){
+  try{ var r=localStorage.getItem(LSKEY); if(r) return JSON.parse(r); }catch(e){}
+  return initDemo();
+}
+
+function saveTasks(arr){
+  try{ localStorage.setItem(LSKEY, JSON.stringify(arr)); }catch(e){}
+}
+
+function initDemo(){
+  var pin = String.fromCodePoint(128204);
+  var t = tds(new Date());
+  var h = tds(new Date(Date.now()-86400000));
+  var dm = tds(new Date(Date.now()+86400000));
+  var arr = [
+    {id:1001,text:'Finir le rapport de stage',emoji:pin,owner:'aya',tag:'etude',priority:'haute',done:false,date:t,created_at:new Date().toISOString()},
+    {id:1002,text:'Reviser le cours C++',emoji:pin,owner:'aya',tag:'etude',priority:'normale',done:true,date:h,created_at:new Date(Date.now()-86400000).toISOString()},
+    {id:1003,text:'Preparer la presentation DevOps',emoji:pin,owner:'omar',tag:'travail',priority:'haute',done:false,date:t,created_at:new Date().toISOString()},
+    {id:1004,text:'Faire les courses',emoji:pin,owner:'fatima',tag:'personnel',priority:'basse',done:false,date:dm,created_at:new Date().toISOString()},
+    {id:1005,text:'Sport 30 minutes',emoji:pin,owner:'aya',tag:'personnel',priority:'normale',done:false,date:t,created_at:new Date().toISOString()}
+  ];
+  saveTasks(arr);
+  return arr;
+}
+
+// ═══ API avec fallback localStorage ═══
 async function apiLogin(u,p){
-  try{const r=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u,password:p})});if(!r.ok){const x=DU.find(i=>i.username===u&&i.password===p);if(x)return{success:true,data:{id:x.id,username:x.username,role:x.role}};return{success:false,error:'Identifiants incorrects'};}return await r.json();}
-  catch{const x=DU.find(i=>i.username===u&&i.password===p);if(x)return{success:true,data:{id:x.id,username:x.username,role:x.role}};return{success:false,error:'Identifiants incorrects'};}
+  try{
+    var r = await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:u,password:p})});
+    if(!r.ok) throw 0;
+    return await r.json();
+  }catch(e){
+    var x = DU.find(function(i){return i.username===u&&i.password===p});
+    if(x) return {success:true,data:{id:x.id,username:x.username,role:x.role}};
+    return {success:false,error:'Identifiants incorrects'};
+  }
 }
+
 async function apiGet(){
-  try{const url=cu.role==='admin'?'/api/tasks?role=admin':'/api/tasks?owner='+cu.username+'&role=user';const r=await fetch(url);if(!r.ok)throw 0;return(await r.json()).data||[];}
-  catch{let t=ll();if(cu.role!=='admin')t=t.filter(x=>x.owner===cu.username);return t;}
+  try{
+    var url = cu.role==='admin'?'/api/tasks?role=admin':'/api/tasks?owner='+cu.username+'&role=user';
+    var r = await fetch(url);
+    if(!r.ok) throw 0;
+    return (await r.json()).data||[];
+  }catch(e){
+    var arr = loadTasks();
+    if(cu.role!=='admin') arr = arr.filter(function(x){return x.owner===cu.username});
+    return arr;
+  }
 }
+
 async function apiAdd(task){
-  try{const r=await fetch('/api/tasks',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(task)});if(!r.ok)throw 0;return(await r.json()).data;}
-  catch{const ts=ll();const nt={...task,id:Date.now(),done:0,created_at:new Date().toISOString()};ts.push(nt);sl(ts);return nt;}
+  try{
+    var r = await fetch('/api/tasks',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(task)});
+    if(!r.ok) throw 0;
+    return (await r.json()).data;
+  }catch(e){
+    var arr = loadTasks();
+    var nt = {
+      id: Date.now(),
+      text: task.text,
+      emoji: task.emoji,
+      owner: task.owner,
+      tag: task.tag,
+      priority: task.priority,
+      done: false,
+      date: task.date,
+      created_at: new Date().toISOString()
+    };
+    arr.push(nt);
+    saveTasks(arr);
+    return nt;
+  }
 }
+
 async function apiToggle(id){
-  try{const r=await fetch('/api/tasks/'+id+'/toggle',{method:'PATCH'});if(!r.ok)throw 0;}
-  catch{const t=ll();const x=t.find(i=>i.id===id);if(x)x.done=x.done?0:1;sl(t);}
+  try{
+    var r = await fetch('/api/tasks/'+id+'/toggle',{method:'PATCH'});
+    if(!r.ok) throw 0;
+  }catch(e){
+    var arr = loadTasks();
+    var x = arr.find(function(i){return i.id===id});
+    if(x) x.done = !x.done;
+    saveTasks(arr);
+  }
 }
+
 async function apiDel(id){
-  try{const r=await fetch('/api/tasks/'+id,{method:'DELETE'});if(!r.ok)throw 0;}
-  catch{sl(ll().filter(x=>x.id!==id));}
+  try{
+    var r = await fetch('/api/tasks/'+id,{method:'DELETE'});
+    if(!r.ok) throw 0;
+  }catch(e){
+    saveTasks(loadTasks().filter(function(x){return x.id!==id}));
+  }
 }
+
 async function apiUsers(){
-  try{const r=await fetch('/api/users');if(!r.ok)throw 0;return(await r.json()).data||[];}
-  catch{return DU.map(u=>({id:u.id,username:u.username,role:u.role}));}
+  try{
+    var r = await fetch('/api/users');
+    if(!r.ok) throw 0;
+    return (await r.json()).data||[];
+  }catch(e){
+    return DU.map(function(u){return {id:u.id,username:u.username,role:u.role}});
+  }
 }
-let selR='user';
+
+// ═══ LOGIN ═══
+var selR = 'user';
 function selRole(r){
-  selR=r;
-  document.getElementById('rc-u').className='rc'+(r==='user'?' sel-u':'');
-  document.getElementById('rc-a').className='rc'+(r==='admin'?' sel-a':'');
-  document.getElementById('btn-l').className='btn-login '+(r==='admin'?'bla':'blu');
-  document.getElementById('btn-l').textContent=r==='admin'?'👑 Connexion Admin':'🌸 Connexion';
-  document.getElementById('inp-p').className='finp'+(r==='admin'?' af':'');
+  selR = r;
+  document.getElementById('rc-u').className = 'rc'+(r==='user'?' sel-u':'');
+  document.getElementById('rc-a').className = 'rc'+(r==='admin'?' sel-a':'');
+  document.getElementById('btn-l').className = 'btn-login '+(r==='admin'?'bla':'blu');
+  document.getElementById('btn-l').textContent = r==='admin'?'Connexion Admin':'Connexion';
+  document.getElementById('inp-p').className = 'finp'+(r==='admin'?' af':'');
 }
-['inp-u','inp-p'].forEach(i=>document.getElementById(i).addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()}));
+document.getElementById('inp-u').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin()});
+document.getElementById('inp-p').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin()});
+
 async function doLogin(){
-  const u=document.getElementById('inp-u').value.trim(),p=document.getElementById('inp-p').value.trim(),err=document.getElementById('lerr');
+  var u = document.getElementById('inp-u').value.trim();
+  var p = document.getElementById('inp-p').value.trim();
+  var err = document.getElementById('lerr');
   if(!u||!p){err.textContent='Veuillez remplir tous les champs.';return}
   err.textContent='Connexion...';
-  const d=await apiLogin(u,p);
+  var d = await apiLogin(u,p);
   if(!d.success){err.textContent=d.error||'Identifiants incorrects.';return}
-  if(selR==='admin'&&d.data.role!=='admin'){err.textContent='Ce compte n est pas administrateur.';return}
+  if(selR==='admin'&&d.data.role!=='admin'){err.textContent='Ce compte n est pas admin.';return}
   if(selR==='user'&&d.data.role==='admin'){err.textContent='Utilisez le mode Admin.';return}
-  err.textContent='';cu=d.data;enterApp();
+  err.textContent='';
+  cu = d.data;
+  enterApp();
 }
+
 function doLogout(){
-  cu=null;st={filt:'all',ufilt:'all',emoji:'📌',selDate:null};
+  cu=null; filt='all'; ufilt='all'; selDate=null; selEmoji=String.fromCodePoint(128204);
   document.getElementById('main-screen').style.display='none';
   document.getElementById('login-screen').style.display='flex';
-  document.getElementById('inp-u').value='';document.getElementById('inp-p').value='';selRole('user');
+  document.getElementById('inp-u').value='';
+  document.getElementById('inp-p').value='';
+  selRole('user');
 }
+
+// ═══ ENTER APP ═══
 async function enterApp(){
-  document.getElementById('login-screen').style.display='none';document.getElementById('main-screen').style.display='block';
-  const adm=cu.role==='admin';
-  const av=document.getElementById('tb-av');av.textContent=cu.username[0].toUpperCase();av.className='av '+(adm?'av-a':'av-u');
-  document.getElementById('tb-name').textContent=cu.username;
-  const pill=document.getElementById('tb-pill');pill.textContent=adm?'👑 Admin':'🌷 User';pill.className='rpill '+(adm?'rp-a':'rp-u');
-  document.getElementById('hero-t').innerHTML=adm?'Vue <em class="hl-a">Admin</em> 👑':'Mes <em class="hl-u">taches</em> 🌷';
-  document.getElementById('hero-s').textContent=adm?'Supervisez toutes les taches.':'Bonjour '+cu.username+' — belle journee ! ✨';
-  document.getElementById('admin-banner').style.display=adm?'flex':'none';
-  if(adm){const us=await apiUsers();const al=['all',...new Set(us.map(u=>u.username))];document.getElementById('ab-chips').innerHTML=al.map(u=>'<div class="ab-chip'+(st.ufilt===u?' act':'')+'" onclick="setUFilt(\''+u+'\')">'+(u==='all'?'👥 Tous':'🌷 '+u)+'</div>').join('');}
-  document.getElementById('btn-add').className='btn-add '+(adm?'ba-a':'ba-u');
-  document.getElementById('task-inp').className='ai'+(adm?' ai-a':'');
-  document.getElementById('erow').innerHTML=EMOJIS.map(e=>'<div class="ep'+(e===st.emoji?' on':'')+'" onclick="pickEmoji(\''+e+'\')">'+e+'</div>').join('');
-  updateFS();await loadR();
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('main-screen').style.display='block';
+  var adm = cu.role==='admin';
+  var av = document.getElementById('tb-av');
+  av.textContent = cu.username[0].toUpperCase();
+  av.className = 'av '+(adm?'av-a':'av-u');
+  document.getElementById('tb-name').textContent = cu.username;
+  var pill = document.getElementById('tb-pill');
+  pill.textContent = adm?'Admin':'User';
+  pill.className = 'rpill '+(adm?'rp-a':'rp-u');
+  document.getElementById('hero-t').innerHTML = adm?'Vue <em class="hl-a">Admin</em>':'Mes <em class="hl-u">taches</em>';
+  document.getElementById('hero-s').textContent = adm?'Supervisez toutes les taches.':'Bonjour '+cu.username+' !';
+  document.getElementById('admin-banner').style.display = adm?'flex':'none';
+  if(adm){
+    var users = await apiUsers();
+    var unames = ['all'];
+    users.forEach(function(u){ if(unames.indexOf(u.username)<0) unames.push(u.username); });
+    document.getElementById('ab-chips').innerHTML = unames.map(function(u){
+      return '<div class="ab-chip'+(ufilt===u?' act':'')+'" onclick="setUFilt(\''+u+'\')">'+(u==='all'?'Tous':u)+'</div>';
+    }).join('');
+  }
+  document.getElementById('btn-add').className = 'btn-add '+(adm?'ba-a':'ba-u');
+  document.getElementById('task-inp').className = 'ai'+(adm?' ai-a':'');
+  buildEmojis();
+  updateFS();
+  await loadR();
 }
-function openCal(){calTempSel=st.selDate;calDate=st.selDate?new Date(st.selDate+'T12:00:00'):new Date();renderCG();document.getElementById('cal-overlay-wrap').style.display='block';}
-function closeCal(){document.getElementById('cal-overlay-wrap').style.display='none';}
-function cOverlay(e){if(e.target.classList.contains('cal-overlay'))closeCal();}
-function calPrev(){calDate=new Date(calDate.getFullYear(),calDate.getMonth()-1,1);renderCG();}
-function calNext(){calDate=new Date(calDate.getFullYear(),calDate.getMonth()+1,1);renderCG();}
-function calToday(){calDate=new Date();renderCG();}
-async function renderCG(){
-  const tasks=await apiGet();const td=new Set(tasks.map(t=>t.date||t.created_at?.split('T')[0]).filter(Boolean));
-  const y=calDate.getFullYear(),m=calDate.getMonth();document.getElementById('cal-month').textContent=MF[m]+' '+y;
-  const fd=new Date(y,m,1);const ld=new Date(y,m+1,0);let sd=fd.getDay()-1;if(sd<0)sd=6;
-  const ts=tds(new Date());let h=DF.map(d=>'<div class="cal-dname">'+d+'</div>').join('');
-  for(let i=0;i<sd;i++)h+='<div class="cal-d empty-d"></div>';
-  for(let d=1;d<=ld.getDate();d++){const ds=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');let c='cal-d';if(ds===ts)c+=' today';if(ds===calTempSel)c+=' sel';if(td.has(ds))c+=' has-t';h+='<div class="'+c+'" onclick="pickDay(\''+ds+'\')">'+d+'</div>';}
-  document.getElementById('cal-grid').innerHTML=h;updateCF();
-}
-function pickDay(ds){calTempSel=calTempSel===ds?null:ds;renderCG();}
-function updateCF(){const el=document.getElementById('cal-sel-txt');if(!calTempSel){el.innerHTML='<em style="color:var(--text3)">Aucune date</em>';return;}const d=new Date(calTempSel+'T12:00:00');el.innerHTML='<span style="color:#7040a0;font-weight:600">'+d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})+'</span>';}
-function clearCalSel(){calTempSel=null;renderCG();}
-function confirmCal(){
-  st.selDate=calTempSel;closeCal();
-  const btn=document.getElementById('cal-btn');const txt=document.getElementById('cal-btn-txt');
-  if(st.selDate){const d=new Date(st.selDate+'T12:00:00');txt.textContent=d.toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'});btn.className='cal-trigger-btn has-date';document.getElementById('db-date-txt').textContent=d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});document.getElementById('date-banner').style.display='flex';}
-  else{txt.textContent='Choisir une date';btn.className='cal-trigger-btn';document.getElementById('date-banner').style.display='none';}
-  loadR();
-}
-function clearDate(){st.selDate=null;document.getElementById('cal-btn-txt').textContent='Choisir une date';document.getElementById('cal-btn').className='cal-trigger-btn';document.getElementById('date-banner').style.display='none';loadR();}
-function pickEmoji(e){st.emoji=e;document.querySelectorAll('.ep').forEach(el=>el.classList.toggle('on',el.textContent===e));}
-document.addEventListener('DOMContentLoaded',()=>{document.getElementById('task-inp').addEventListener('keydown',e=>{if(e.key==='Enter')addTask();});});
-async function addTask(){
-  const inp=document.getElementById('task-inp');const txt=inp.value.trim();
-  if(!txt){toast('Saisissez une tache !','terr');inp.focus();return}
-  await apiAdd({text:txt,emoji:st.emoji,owner:cu.username,tag:document.getElementById('task-tag').value,priority:document.getElementById('task-prio').value,date:st.selDate||tds(new Date())});
-  inp.value='';toast('Tache ajoutee ✅','tok');await loadR();
-}
-async function toggleTask(id){await apiToggle(id);await loadR();}
-function askDel(id,txt){
-  document.getElementById('mc').innerHTML='<div class="mbg" onclick="cM(event)"><div class="mbox"><span class="mico">🗑️</span><div class="mttl">Supprimer ?</div><div class="mdsc">"'+esc(txt.substring(0,50))+'"<br>Action irreversible.</div><div class="mact"><button class="mno" onclick="document.getElementById(\'mc\').innerHTML=\'\'">Annuler</button><button class="myes" onclick="cD('+id+')">Supprimer</button></div></div></div>';
-}
-function cM(e){if(e.target.classList.contains('mbg'))document.getElementById('mc').innerHTML='';}
-async function cD(id){document.getElementById('mc').innerHTML='';await apiDel(id);toast('Tache supprimee','tinf');await loadR();}
-function setFilt(f){st.filt=f;updateFS();loadR();}
-function setUFilt(u){st.ufilt=u;document.querySelectorAll('.ab-chip').forEach(c=>{const l=c.textContent.replace('👥 ','').replace('🌷 ','');c.classList.toggle('act',(u==='all'&&l==='Tous')||(l===u));});loadR();}
-function updateFS(){
-  const adm=cu?.role==='admin';
-  ['all','pending','done'].forEach(f=>{const el=document.getElementById('ft-'+f);if(!el)return;el.className='fb'+(st.filt===f?(adm?' fa-a':' fa-u'):'');el.textContent=f==='all'?'Toutes':f==='pending'?'⏳ En cours':'✅ Terminees';});
-}
-async function loadR(){
-  let all=await apiGet();
-  if(cu.role==='admin'&&st.ufilt!=='all')all=all.filter(t=>t.owner===st.ufilt);
-  document.getElementById('s-tot').textContent=all.length;
-  document.getElementById('s-don').textContent=all.filter(t=>t.done).length;
-  document.getElementById('s-pen').textContent=all.filter(t=>!t.done).length;
-  let tasks=[...all];
-  if(st.selDate){tasks=tasks.filter(t=>(t.date||t.created_at?.split('T')[0])===st.selDate);document.getElementById('db-count-txt').textContent=tasks.length+' tache'+(tasks.length>1?'s':'')+' ce jour';}
-  if(st.filt==='pending')tasks=tasks.filter(t=>!t.done);
-  if(st.filt==='done')tasks=tasks.filter(t=>t.done);
-  tasks.sort((a,b)=>{if(!!a.done!==!!b.done)return a.done?1:-1;return new Date(b.created_at)-new Date(a.created_at)});
-  renderT(tasks);
-}
-function renderT(tasks){
-  const c=document.getElementById('tl');const adm=cu.role==='admin';
-  if(!tasks.length){const m=st.selDate?'Aucune tache pour cette date':'Aucune tache pour le moment';const s=st.selDate?'Ajoutez une tache avec cette date !':'Ajoutez-en une ci-dessus !';c.innerHTML='<div class="empty"><span class="eico">🌸</span><div class="ett">'+m+'</div><div class="esub">'+s+'</div></div>';return;}
-  c.innerHTML=tasks.map(t=>{
-    const pc=t.priority==='haute'?'ph':t.priority==='basse'?'pb':'pn';
-    const dt=new Date(t.created_at).toLocaleDateString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
-    const dp=t.date?new Date(t.date+'T12:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'short'}):null;
-    const chk=t.done?(adm?'chk ck-a':'chk ck-u'):'chk';
-    const cd=adm||t.owner===cu.username;
-    const pl=t.priority==='haute'?'🔴 Haute':t.priority==='basse'?'🟢 Basse':'🟣 Normale';
-    const tl=t.tag==='travail'?'💼 Travail':t.tag==='personnel'?'🏠 Personnel':t.tag==='etude'?'📚 Etude':'🚨 Urgent';
-    return '<div class="ti '+pc+(t.done?' done':'')+'"><div class="emoji-badge">'+((t.emoji&&t.emoji.length<=4?t.emoji:String.fromCodePoint(128204))?String.fromCodePoint(128204):t.emoji)+'</div><div class="'+chk+'" onclick="toggleTask('+t.id+')">'+(t.done?'✓':'')+'</div><div class="tb_"><div class="tt">'+esc(t.text)+'</div><div class="tm"><span class="td">'+dt+'</span>'+(dp?'<span class="date-pill">📅 '+dp+'</span>':'')+'<span class="ttag tag-'+t.tag+'">'+tl+'</span><span class="pch '+pc+'">'+pl+'</span>'+(adm?'<span class="own-pill">@'+esc(t.owner)+'</span>':'')+'</div></div>'+(cd?'<button class="btn-del" onclick="askDel('+t.id+',\''+esc(t.text)+'\')">✕</button>':'')+'</div>';
+
+// ═══ EMOJIS ═══
+function buildEmojis(){
+  document.getElementById('erow').innerHTML = EMOJIS.map(function(e,i){
+    return '<div class="ep'+(e===selEmoji?' on':'')+'" onclick="pickEmoji('+i+')">'+e+'</div>';
   }).join('');
 }
-function toast(msg,cls){const b=document.getElementById('tbox');const d=document.createElement('div');d.className='tos '+(cls||'tinf');d.textContent=msg;b.appendChild(d);setTimeout(()=>d.remove(),2700);}
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+
+function pickEmoji(idx){
+  selEmoji = EMOJIS[idx];
+  document.querySelectorAll('.ep').forEach(function(el,i){
+    el.classList.toggle('on', i===idx);
+  });
+}
+
+// ═══ AJOUTER TACHE ═══
+document.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('task-inp').addEventListener('keydown',function(e){
+    if(e.key==='Enter') addTask();
+  });
+});
+
+async function addTask(){
+  var inp = document.getElementById('task-inp');
+  var txt = inp.value.trim();
+  if(!txt){ toast('Saisissez une tache !','terr'); inp.focus(); return; }
+  var task = {
+    text: txt,
+    emoji: selEmoji,
+    owner: cu.username,
+    tag: document.getElementById('task-tag').value,
+    priority: document.getElementById('task-prio').value,
+    date: selDate || tds(new Date())
+  };
+  await apiAdd(task);
+  inp.value = '';
+  toast('Tache ajoutee !','tok');
+  await loadR();
+}
+
+// ═══ TOGGLE / DELETE ═══
+async function toggleTask(id){
+  await apiToggle(id);
+  await loadR();
+}
+
+function askDel(id,txt){
+  document.getElementById('mc').innerHTML =
+    '<div class="mbg" onclick="cM(event)">'+
+    '<div class="mbox">'+
+    '<span class="mico">&#128465;</span>'+
+    '<div class="mttl">Supprimer ?</div>'+
+    '<div class="mdsc">'+esc(txt.substring(0,50))+'<br>Action irreversible.</div>'+
+    '<div class="mact">'+
+    '<button class="mno" onclick="document.getElementById(\'mc\').innerHTML=\'\'">Annuler</button>'+
+    '<button class="myes" onclick="cD('+id+')">Supprimer</button>'+
+    '</div></div></div>';
+}
+function cM(e){ if(e.target.classList.contains('mbg')) document.getElementById('mc').innerHTML=''; }
+async function cD(id){ document.getElementById('mc').innerHTML=''; await apiDel(id); toast('Supprimee','tinf'); await loadR(); }
+
+// ═══ FILTRES ═══
+function setFilt(f){ filt=f; updateFS(); loadR(); }
+function setUFilt(u){
+  ufilt=u;
+  document.querySelectorAll('.ab-chip').forEach(function(c){
+    c.classList.toggle('act', c.textContent===u||(u==='all'&&c.textContent==='Tous'));
+  });
+  loadR();
+}
+function updateFS(){
+  var adm = cu&&cu.role==='admin';
+  ['all','pending','done'].forEach(function(f){
+    var el = document.getElementById('ft-'+f);
+    if(!el) return;
+    el.className = 'fb'+(filt===f?(adm?' fa-a':' fa-u'):'');
+    el.textContent = f==='all'?'Toutes':f==='pending'?'En cours':'Terminees';
+  });
+}
+
+// ═══ LOAD ET RENDER ═══
+async function loadR(){
+  var all = await apiGet();
+  if(cu.role==='admin'&&ufilt!=='all') all=all.filter(function(t){return t.owner===ufilt});
+  document.getElementById('s-tot').textContent = all.length;
+  document.getElementById('s-don').textContent = all.filter(function(t){return t.done}).length;
+  document.getElementById('s-pen').textContent = all.filter(function(t){return !t.done}).length;
+  var tasks = all.slice();
+  if(selDate){
+    tasks = tasks.filter(function(t){
+      var d = t.date||(t.created_at?t.created_at.split('T')[0]:'');
+      return d===selDate;
+    });
+    document.getElementById('db-count-txt').textContent = tasks.length+' tache(s) ce jour';
+  }
+  if(filt==='pending') tasks=tasks.filter(function(t){return !t.done});
+  if(filt==='done') tasks=tasks.filter(function(t){return t.done});
+  tasks.sort(function(a,b){
+    if(!!a.done!==!!b.done) return a.done?1:-1;
+    return new Date(b.created_at)-new Date(a.created_at);
+  });
+  renderT(tasks);
+}
+
+function getEmoji(e){
+  if(!e||e==='pin'||e.length>4) return String.fromCodePoint(128204);
+  return e;
+}
+
+function renderT(tasks){
+  var c = document.getElementById('tl');
+  var adm = cu.role==='admin';
+  if(!tasks.length){
+    c.innerHTML = '<div class="empty"><span class="eico">&#127800;</span><div class="ett">Aucune tache</div><div class="esub">Ajoutez-en une ci-dessus !</div></div>';
+    return;
+  }
+  c.innerHTML = tasks.map(function(t){
+    var pc = t.priority==='haute'?'ph':t.priority==='basse'?'pb':'pn';
+    var dt = new Date(t.created_at).toLocaleDateString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+    var dp = t.date?new Date(t.date+'T12:00:00').toLocaleDateString('fr-FR',{day:'numeric',month:'short'}):null;
+    var chk = t.done?(adm?'chk ck-a':'chk ck-u'):'chk';
+    var cd = adm||t.owner===cu.username;
+    var pl = t.priority==='haute'?'Haute':t.priority==='basse'?'Basse':'Normale';
+    var tl = t.tag==='travail'?'Travail':t.tag==='personnel'?'Personnel':t.tag==='etude'?'Etude':'Urgent';
+    var em = getEmoji(t.emoji);
+    return '<div class="ti '+pc+(t.done?' done':'')+'">'+
+      '<div class="ebadge">'+em+'</div>'+
+      '<div class="'+chk+'" onclick="toggleTask('+t.id+')">'+(t.done?'&#10003;':'')+'</div>'+
+      '<div class="tb_">'+
+        '<div class="tt">'+esc(t.text)+'</div>'+
+        '<div class="tm">'+
+          '<span class="td">'+dt+'</span>'+
+          (dp?'<span class="date-pill">'+dp+'</span>':'')+
+          '<span class="ttag tag-'+t.tag+'">'+tl+'</span>'+
+          '<span class="pch '+pc+'">'+pl+'</span>'+
+          (adm?'<span class="own-pill">@'+esc(t.owner)+'</span>':'')+
+        '</div>'+
+      '</div>'+
+      (cd?'<button class="btn-del" onclick="askDel('+t.id+',\''+esc(t.text)+'\')">&#10005;</button>':'')+
+    '</div>';
+  }).join('');
+}
+
+// ═══ CALENDRIER ═══
+function openCal(){ calTempSel=selDate; calDate=selDate?new Date(selDate+'T12:00:00'):new Date(); renderCG(); document.getElementById('cal-overlay-wrap').style.display='block'; }
+function closeCal(){ document.getElementById('cal-overlay-wrap').style.display='none'; }
+function cOv(e){ if(e.target.classList.contains('cal-overlay')) closeCal(); }
+function calPrev(){ calDate=new Date(calDate.getFullYear(),calDate.getMonth()-1,1); renderCG(); }
+function calNext(){ calDate=new Date(calDate.getFullYear(),calDate.getMonth()+1,1); renderCG(); }
+function calToday(){ calDate=new Date(); renderCG(); }
+
+async function renderCG(){
+  var tasks = await apiGet();
+  var td = {};
+  tasks.forEach(function(t){ var d=t.date||(t.created_at?t.created_at.split('T')[0]:''); if(d) td[d]=true; });
+  var y=calDate.getFullYear(), m=calDate.getMonth();
+  document.getElementById('cal-month').textContent = MF[m]+' '+y;
+  var fd=new Date(y,m,1), ld=new Date(y,m+1,0);
+  var sd=fd.getDay()-1; if(sd<0) sd=6;
+  var ts=tds(new Date());
+  var h=DF.map(function(d){return '<div class="cal-dname">'+d+'</div>'}).join('');
+  for(var i=0;i<sd;i++) h+='<div class="cal-d empty-d"></div>';
+  for(var d=1;d<=ld.getDate();d++){
+    var mm=m+1;
+    var ds=y+'-'+(mm<10?'0'+mm:mm)+'-'+(d<10?'0'+d:d);
+    var cls='cal-d';
+    if(ds===ts) cls+=' today';
+    if(ds===calTempSel) cls+=' sel';
+    if(td[ds]) cls+=' has-t';
+    h+='<div class="'+cls+'" onclick="pickDay(\''+ds+'\')">'+d+'</div>';
+  }
+  document.getElementById('cal-grid').innerHTML=h;
+  updateCF();
+}
+
+function pickDay(ds){ calTempSel=calTempSel===ds?null:ds; renderCG(); }
+
+function updateCF(){
+  var el=document.getElementById('cal-sel-txt');
+  if(!calTempSel){el.textContent='Aucune date';return}
+  var d=new Date(calTempSel+'T12:00:00');
+  el.textContent=d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+}
+
+function clearCalSel(){ calTempSel=null; renderCG(); }
+
+function confirmCal(){
+  selDate=calTempSel;
+  closeCal();
+  var btn=document.getElementById('cal-btn');
+  var txt=document.getElementById('cal-btn-txt');
+  if(selDate){
+    var d=new Date(selDate+'T12:00:00');
+    txt.textContent=d.toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'});
+    btn.className='cal-trigger-btn has-date';
+    document.getElementById('db-date-txt').textContent=d.toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+    document.getElementById('date-banner').style.display='flex';
+  }else{
+    txt.textContent='Choisir une date';
+    btn.className='cal-trigger-btn';
+    document.getElementById('date-banner').style.display='none';
+  }
+  loadR();
+}
+
+function clearDate(){
+  selDate=null;
+  document.getElementById('cal-btn-txt').textContent='Choisir une date';
+  document.getElementById('cal-btn').className='cal-trigger-btn';
+  document.getElementById('date-banner').style.display='none';
+  loadR();
+}
+
+// ═══ TOAST ═══
+function toast(msg,cls){
+  var b=document.getElementById('tbox');
+  var d=document.createElement('div');
+  d.className='tos '+(cls||'tinf');
+  d.textContent=msg;
+  b.appendChild(d);
+  setTimeout(function(){if(d.parentNode)d.parentNode.removeChild(d)},2700);
+}
+
+function esc(s){
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
 </script>
 </body>
 </html>
-
-
-
-
-
